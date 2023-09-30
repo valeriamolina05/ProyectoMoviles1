@@ -101,13 +101,94 @@ nav > ul > li:nth-child(4) {
 
 
 
+.contenedor-evento {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.detalles-evento {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titulo-evento {
+    margin: 0;
+    color: #017796;
+}
+
+.boton-comprar {
+    background-color:#3B879B;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-left: 44%;
+}
+
+.info-evento {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+    
+}
+
+.imagen-evento {
+    max-width: 50%;
+    float: left;
+}
+
+
+.descripcion-evento {
+    margin-top: 20px;
+}
+
+.linea-separadora {
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+
+.iconos-evento {
+    list-style: none;
+    padding: 0;
+}
+
+.iconos-evento li {
+    margin-bottom: 10px;
+}
+
+.organizador-evento {
+    margin-top: 20px;
+    margin-left: 20%;
+    margin-right: 100px;
+    text-align: center;
+    border: 1px solid #b0d9e4; 
+    border-radius: 20px; 
+    padding: 10px; 
+    
+}
+
+.titulo-organizador {
+    margin: 0;
+    color: #404243;
+}
 
 
 
+.logo-organizador {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
 
+.nombre-organizador {
+    margin: 5px 0;
+}
 
-
-
+.ciudad-organizador {
+    margin: 5px 0;
+}
 
 
 
