@@ -32,6 +32,26 @@ class AfiliadoValidacionTest {
         Assertions.assertEquals(Mensaje.COSTO_PERSONA_INVALIDO.getMensaje(), respuesta.getMessage());
     }
 
+    @Test
+    public void validarCedulaInvitadoFucionaCorrecto(){
+        String cedulaInvitadoPrueba = "2783722849";
+        boolean respuesta = assertDoesNotThrow(()->this.afiliadoValidacion.validarCedulaInvitado(cedulaInvitadoPrueba));
+        Assertions.assertTrue(respuesta);
+    }
+
+    @Test
+    public void validarCedulaInvitadoFucionaIncorrectoPorNumeroCaracteres(){
+        String cedulaInvitadoPrueba = "83722849";
+        Exception respuesta = Assertions.assertThrows(Exception.class,()->this.afiliadoValidacion.validarCedulaInvitado(cedulaInvitadoPrueba));
+        Assertions.assertEquals(Mensaje.NUMERO_CARACTERES_INVALIDO.getMensaje(),respuesta.getMessage());
+    }
+
+    @Test
+    public void validarCedulaInvitadoFucionaIncorrectoPorTipoDeCaracteres(){
+        String cedulaInvitadoPrueba = "83722aa849";
+        Exception respuesta = Assertions.assertThrows(Exception.class,()->this.afiliadoValidacion.validarCedulaInvitado(cedulaInvitadoPrueba));
+        Assertions.assertEquals(Mensaje.NUMERO_CARACTERES_INVALIDO.getMensaje(),respuesta.getMessage());
+    }
 
 
 }
