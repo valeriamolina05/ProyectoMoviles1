@@ -6,11 +6,6 @@ import org.example.validaciones.EmpresaPrivadaValidacion;
 public class EmpresaPrivada extends Empresa implements Ireporte {
 
     private String nombreRepresentante;
-    // @Override
-    public Boolean cobrar() {
-        return false;
-    }
-
     private EmpresaPrivadaValidacion validacion = new EmpresaPrivadaValidacion();
 
     public EmpresaPrivada() {
@@ -32,6 +27,12 @@ public class EmpresaPrivada extends Empresa implements Ireporte {
         }catch (Exception error) {
             System.out.println("\u001B[37m" + error.getMessage() + "\u001B[0m");
         }
+    }
+
+    @Override
+    public Double cobrar(Double base) {
+        Double cobro = base + (base * 0.19) - (base * 0.1);
+        return cobro;
     }
 
     @Override

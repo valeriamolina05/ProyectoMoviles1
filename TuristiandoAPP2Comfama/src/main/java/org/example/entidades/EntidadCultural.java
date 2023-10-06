@@ -7,13 +7,12 @@ public class EntidadCultural extends Empresa implements Ireporte {
 
     private String nombreSecretaria;
     private String misionSecretaria;
-
-
     private EntidadCulturalValidacion validacion = new EntidadCulturalValidacion();
-    // @Override
-    public Boolean cobrar() {
-       return false;
-        // Calcular el precio base + IVA - 10%
+
+    @Override
+    public Double cobrar(Double base) {
+        Double cobro = base + (base * 0.19) - (base * 0.1);
+        return cobro;
     }
 
     public EntidadCultural() {

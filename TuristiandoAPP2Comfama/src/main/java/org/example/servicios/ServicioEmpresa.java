@@ -3,11 +3,11 @@ package org.example.servicios;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-import org.example.entidades.Empresa;
-import org.example.modelos.ModelosEmpresa;
+import org.example.entidades.EmpresaPrivada;
+import org.example.modelos.ModeloEmpresaPrivada;
 
 public class ServicioEmpresa {
-    public void guardarDatosBd(Empresa empresa){
+    public void guardarDatosBd(EmpresaPrivada empresaPrivada){
         // Nombre documento de la entidad configurada en el ORM
         String persistenciaNombre = "conexionbd";
 
@@ -19,12 +19,16 @@ public class ServicioEmpresa {
         try {
             conexionEntidades = Persistence.createEntityManagerFactory(persistenciaNombre);
             manejadorConexionEntidades =conexionEntidades.createEntityManager();
-            ModelosEmpresa modelosEmpresa = new ModelosEmpresa();
+            ModeloEmpresaPrivada modeloEmpresaPrivada = new ModeloEmpresaPrivada();
 
-            modelosEmpresa.setNombre(empresa.getNombre());
+            modeloEmpresaPrivada.setNombre(empresaPrivada.getNombre());
+            modeloEmpresaPrivada.setDescripcion(empresaPrivada.getDescripcion());
+            modeloEmpresaPrivada.setNit(empresaPrivada.getNit());
+            modeloEmpresaPrivada.setUbicacion(empresaPrivada.getUbicacion());
+            modeloEmpresaPrivada.setNombreRepresentante(empresaPrivada.getNombreRepresentante());
 
             manejadorConexionEntidades.getTransaction().begin();
-            manejadorConexionEntidades.persist(modelosEmpresa);
+            manejadorConexionEntidades.persist(modeloEmpresaPrivada);
             manejadorConexionEntidades.getTransaction().commit();
 
         }catch (Exception error){

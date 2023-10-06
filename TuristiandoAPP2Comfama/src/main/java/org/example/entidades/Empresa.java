@@ -3,7 +3,7 @@ package org.example.entidades;
 import org.example.utilidades.Util;
 import org.example.validaciones.EmpresaValidacion;
 
-public class Empresa {
+public abstract class Empresa {
     protected Util util = new Util();
     private Integer id;
     private String nit;
@@ -75,5 +75,5 @@ public class Empresa {
         this.descripcion = descripcion;
     }
 
-    // public abstract Boolean cobrar();
+    public abstract Double cobrar(Double base);
 }
