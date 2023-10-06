@@ -11,7 +11,7 @@ public class Turismo {
 
         Scanner lea = new Scanner(System.in);
         ControladorUsuario controladorUsuario = new ControladorUsuario();
-        controladorUsuario.registrarUsuario("1234567890", "Sebastian Espitia Sanchez", "sebastian@gmail.com", 2);
-
+        controladorUsuario.registrarUsuario("1234567890", "Daniel Espitia Sanchez", "danieles@gmail.com", 2);
+        lea.close();
     }
 }

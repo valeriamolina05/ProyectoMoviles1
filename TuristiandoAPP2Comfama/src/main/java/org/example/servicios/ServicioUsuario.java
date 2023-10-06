@@ -3,8 +3,8 @@ package org.example.servicios;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-import org.example.Entidades.Usuario;
-import org.example.Modelos.ModeloUsuario;
+import org.example.entidades.Usuario;
+import org.example.modelos.ModeloUsuario;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ public class ServicioUsuario {
         conexionEntidades = Persistence.createEntityManagerFactory(persistenciaNombre);
         manejadorConexionEntidades =conexionEntidades.createEntityManager();
     }
-    public void grardarDatosBd(Usuario usuario){
+    public void guardarDatosBd(Usuario usuario){
 
         try {
             conexion();
@@ -55,7 +55,7 @@ public class ServicioUsuario {
 
     }
 
-    public List<ModelosUsuario> ocnsultasDatos(Usuario usuario){
+    public List<ModeloUsuario> consultarDatosBd(Usuario usuario){
 
         try{
             conexion();

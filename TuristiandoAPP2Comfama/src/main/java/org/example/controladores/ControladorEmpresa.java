@@ -1,7 +1,7 @@
 package org.example.controladores;
 
-import org.example.Entidades.Empresa;
-import org.example.Servicios.ServicioEmpresa;
+import org.example.entidades.Empresa;
+import org.example.servicios.ServicioEmpresa;
 
 public class ControladorEmpresa {
     private Empresa empresa = new Empresa(); //valida datos de un nuevo usuario

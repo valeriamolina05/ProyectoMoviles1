@@ -4,7 +4,7 @@ import org.example.entidades.interfaces.Ireporte;
 import org.example.validaciones.OcasionalValidacion;
 
 public class Ocasional extends Usuario implements Ireporte {
-    @Override
+    // @Override
     public Boolean registrar() {
         return null;
     }

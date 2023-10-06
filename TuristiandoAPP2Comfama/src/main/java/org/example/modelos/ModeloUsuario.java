@@ -2,7 +2,6 @@ package org.example.modelos;
 
 import jakarta.persistence.*;
 
-import java.util.IdentityHashMap;
 
 @Entity
 @Table(name = "usuarios")

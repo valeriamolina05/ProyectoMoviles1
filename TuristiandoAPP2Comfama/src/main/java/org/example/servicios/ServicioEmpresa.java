@@ -3,11 +3,11 @@ package org.example.servicios;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-import org.example.Entidades.Empresa;
-import org.example.Modelos.ModelosEmpresa;
+import org.example.entidades.Empresa;
+import org.example.modelos.ModelosEmpresa;
 
 public class ServicioEmpresa {
-    public void grardarDatosBd(Empresa empresa){
+    public void guardarDatosBd(Empresa empresa){
         // Nombre documento de la entidad configurada en el ORM
         String persistenciaNombre = "conexionbd";
 

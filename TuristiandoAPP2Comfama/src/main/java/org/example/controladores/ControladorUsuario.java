@@ -1,8 +1,8 @@
 package org.example.controladores;
 
-import org.example.Entidades.Usuario;
-import org.example.Servicios.ServicioUsuario;
-import org.example.Modelos.ModeloUsuario;
+import org.example.entidades.Usuario;
+import org.example.servicios.ServicioUsuario;
+import org.example.modelos.ModeloUsuario;
 
 import java.util.List;
 
@@ -15,12 +15,12 @@ public class ControladorUsuario {
         usuario.setCorreo(correo);
         usuario.setDocumento(documento);
         usuario.setUbicacion(ubicacion);
-        this.servicioUsuario.grardarDatosBd(usuario);
+        this.servicioUsuario.guardarDatosBd(usuario);
     }
 
     public void consultarUsuario(){
-        List<ModeloUsuario> usuarios = this.servicioUsuario.consultarDatosBD();
-        System.out.println();;
+        List<ModeloUsuario> usuarios = this.servicioUsuario.consultarDatosBd(usuario);
+        System.out.println(usuarios);
     }
 
     /*public void consultarUsuario(){

@@ -3,10 +3,7 @@ package org.example.entidades;
 import org.example.utilidades.Util;
 import org.example.validaciones.UsuarioValidacion;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-public abstract class Usuario {
+public class Usuario {
 
     protected Util util = new Util();
     private Integer id;
@@ -85,7 +82,7 @@ public abstract class Usuario {
 
 
     //1.Registrarse en plataforma
-    public abstract Boolean registrar();
+    // public abstract Boolean registrar();
 
 
 }
