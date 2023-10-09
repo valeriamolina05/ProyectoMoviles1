@@ -39,7 +39,7 @@ public class ServicioUsuario {
             manejadorConexionEntidades.persist(modeloUsuario);
             manejadorConexionEntidades.getTransaction().commit();
 
-            System.out.println("Registro Exitoso");
+            System.out.println("¡Registro Usuario Exitoso!\n");
 
         }catch (Exception error){
             error.getStackTrace();

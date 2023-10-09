@@ -1,5 +1,7 @@
 package org.example.modelos;
 
+import org.example.entidades.EmpresaPrivada;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,9 +10,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Empresa")
+@Table(name = "Empresas_Privadas")
 public class ModeloEmpresaPrivada {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idEPrivada")
@@ -22,6 +23,9 @@ public class ModeloEmpresaPrivada {
     private Integer ubicacion;
     private String descripcion;
     private String nombreRepresentante;
+    private Double pagar;
+    
+    private EmpresaPrivada empresaPrivada = new EmpresaPrivada();
 
     public Integer getId() {
         return this.id;
@@ -70,5 +74,14 @@ public class ModeloEmpresaPrivada {
     public void setNombreRepresentante(String nombreRepresentante) {
         this.nombreRepresentante = nombreRepresentante;
     }
+
+    public Double getCobro() {
+        return this.pagar;
+    }
+
+    public void setCobro(Double pagar) {
+        this.pagar = empresaPrivada.cobrar(pagar);
+    }
+
     
 }

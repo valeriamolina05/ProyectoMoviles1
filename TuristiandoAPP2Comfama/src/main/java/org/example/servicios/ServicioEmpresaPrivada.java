@@ -6,7 +6,7 @@ import jakarta.persistence.Persistence;
 import org.example.entidades.EmpresaPrivada;
 import org.example.modelos.ModeloEmpresaPrivada;
 
-public class ServicioEmpresa {
+public class ServicioEmpresaPrivada {
     public void guardarDatosBd(EmpresaPrivada empresaPrivada){
         // Nombre documento de la entidad configurada en el ORM
         String persistenciaNombre = "conexionbd";
@@ -21,15 +21,17 @@ public class ServicioEmpresa {
             manejadorConexionEntidades =conexionEntidades.createEntityManager();
             ModeloEmpresaPrivada modeloEmpresaPrivada = new ModeloEmpresaPrivada();
 
+            modeloEmpresaPrivada.setNit(empresaPrivada.getNit());
             modeloEmpresaPrivada.setNombre(empresaPrivada.getNombre());
             modeloEmpresaPrivada.setDescripcion(empresaPrivada.getDescripcion());
-            modeloEmpresaPrivada.setNit(empresaPrivada.getNit());
-            modeloEmpresaPrivada.setUbicacion(empresaPrivada.getUbicacion());
             modeloEmpresaPrivada.setNombreRepresentante(empresaPrivada.getNombreRepresentante());
+            modeloEmpresaPrivada.setUbicacion(empresaPrivada.getUbicacion());
 
             manejadorConexionEntidades.getTransaction().begin();
             manejadorConexionEntidades.persist(modeloEmpresaPrivada);
             manejadorConexionEntidades.getTransaction().commit();
+
+            System.out.println("¡Empresa privada registrada con exito!\n");
 
         }catch (Exception error){
             error.getStackTrace();
