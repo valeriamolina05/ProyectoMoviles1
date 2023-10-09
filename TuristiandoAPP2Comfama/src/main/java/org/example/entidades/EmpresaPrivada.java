@@ -6,7 +6,7 @@ import org.example.validaciones.EmpresaPrivadaValidacion;
 public class EmpresaPrivada extends Empresa implements Ireporte {
 
     private String nombreRepresentante;
-    private Double pagar;
+    private Double cobro;
     private EmpresaPrivadaValidacion validacion = new EmpresaPrivadaValidacion();
 
     public EmpresaPrivada() {
@@ -31,9 +31,9 @@ public class EmpresaPrivada extends Empresa implements Ireporte {
     }
 
     @Override
-    public Double cobrar(Double base) {
-        this.pagar = base + (base * 0.19) - (base * 0.1);
-        return pagar;
+    public Double cobrar() {
+        this.cobro = 2200000 + (2200000 * 0.19);
+        return cobro;
     }
 
     @Override

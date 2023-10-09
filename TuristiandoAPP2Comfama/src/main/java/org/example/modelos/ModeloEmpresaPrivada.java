@@ -23,9 +23,7 @@ public class ModeloEmpresaPrivada {
     private Integer ubicacion;
     private String descripcion;
     private String nombreRepresentante;
-    private Double pagar;
-    
-    private EmpresaPrivada empresaPrivada = new EmpresaPrivada();
+    private Double cobro;
 
     public Integer getId() {
         return this.id;
@@ -76,11 +74,11 @@ public class ModeloEmpresaPrivada {
     }
 
     public Double getCobro() {
-        return this.pagar;
+        return this.cobro;
     }
 
-    public void setCobro(Double pagar) {
-        this.pagar = empresaPrivada.cobrar(pagar);
+    public void setCobro(Double cobro) {
+        this.cobro = cobro;
     }
 
     

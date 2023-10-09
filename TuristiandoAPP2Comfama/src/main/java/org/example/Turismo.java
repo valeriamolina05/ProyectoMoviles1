@@ -16,7 +16,7 @@ public class Turismo {
         controladorUsuario.registrarUsuario("1234567890", "Sebastian Espitia Sanchez", "danieles@gmail.com", 2);
 
         ControladorEmpresaPrivada controladorEPrivada = new ControladorEmpresaPrivada();
-        controladorEPrivada.RegistrarEmpresa("1234567890", "BarnilSA", null, null, "Manuel Fernando");
+        controladorEPrivada.RegistrarEmpresa("1234567890", "BarnilSA", null, null, "Manuel Fernando" );
         
     }
 }

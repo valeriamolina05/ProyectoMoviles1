@@ -10,8 +10,8 @@ public class EntidadCultural extends Empresa implements Ireporte {
     private EntidadCulturalValidacion validacion = new EntidadCulturalValidacion();
 
     @Override
-    public Double cobrar(Double base) {
-        Double cobro = base + (base * 0.19) - (base * 0.1);
+    public Double cobrar() {
+        Double cobro = 1200000 + (1200000 * 0.19) - (1200000 * 0.1);
         return cobro;
     }
 

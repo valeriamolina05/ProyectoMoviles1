@@ -75,5 +75,5 @@ public abstract class Empresa {
         this.descripcion = descripcion;
     }
 
-    public abstract Double cobrar(Double base);
+    public abstract Double cobrar();
 }

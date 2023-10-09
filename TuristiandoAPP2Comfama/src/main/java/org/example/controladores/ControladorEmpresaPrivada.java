@@ -5,7 +5,7 @@ import org.example.servicios.ServicioEmpresaPrivada;
 
 public class ControladorEmpresaPrivada {
     private EmpresaPrivada empresaPrivada = new EmpresaPrivada();
-    ServicioEmpresaPrivada servicioEmpresaPrivada = new ServicioEmpresaPrivada();
+    private ServicioEmpresaPrivada servicioEmpresaPrivada = new ServicioEmpresaPrivada();
 
     public void RegistrarEmpresa(String nit, String nombre, String descripcion, Integer ubicacion, String nombreRepresentante){
         empresaPrivada.setNit(nit);
@@ -13,6 +13,7 @@ public class ControladorEmpresaPrivada {
         empresaPrivada.setUbicacion(ubicacion);
         empresaPrivada.setDescripcion(descripcion);
         empresaPrivada.setNombreRepresentante(nombreRepresentante);
+        empresaPrivada.cobrar();
 
         servicioEmpresaPrivada.guardarDatosBd(empresaPrivada);
     }

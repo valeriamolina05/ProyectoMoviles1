@@ -26,6 +26,7 @@ public class ServicioEmpresaPrivada {
             modeloEmpresaPrivada.setDescripcion(empresaPrivada.getDescripcion());
             modeloEmpresaPrivada.setNombreRepresentante(empresaPrivada.getNombreRepresentante());
             modeloEmpresaPrivada.setUbicacion(empresaPrivada.getUbicacion());
+            modeloEmpresaPrivada.setCobro(empresaPrivada.cobrar());
 
             manejadorConexionEntidades.getTransaction().begin();
             manejadorConexionEntidades.persist(modeloEmpresaPrivada);
