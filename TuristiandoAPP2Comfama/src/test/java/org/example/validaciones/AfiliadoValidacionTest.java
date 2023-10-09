@@ -1,11 +1,12 @@
 package org.example.validaciones;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import org.example.utilidades.Mensaje;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+// import static org.junit.jupiter.api.Assertions.*;
 
 class AfiliadoValidacionTest {
 

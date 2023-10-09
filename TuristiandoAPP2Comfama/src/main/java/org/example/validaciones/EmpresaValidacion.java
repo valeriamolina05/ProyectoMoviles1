@@ -26,7 +26,7 @@ public class EmpresaValidacion {
         // 1. Validar que el nombre tenga máximo 30 caracteres
         if (nombre.length() > 30) {
             throw new Exception(Mensaje.NOMBRE_LOCAL_INVALIDO.getMensaje());
-        } else if (!util.validarExpresionRegular(nombre,"^[a-zA-Z]+$")) {
+        } else if (!util.validarExpresionRegular(nombre,"^[a-zA-Z]+(?: [a-zA-Z]+|[.,'\"])*$")) {
             throw new Exception(Mensaje.NOMBRE_INVALIDO.getMensaje());
         } else {
             return true;

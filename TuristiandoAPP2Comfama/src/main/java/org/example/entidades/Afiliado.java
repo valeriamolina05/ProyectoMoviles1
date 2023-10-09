@@ -1,6 +1,5 @@
 package org.example.entidades;
 
-import org.example.entidades.interfaces.Ilegal;
 import org.example.entidades.interfaces.Ireporte;
 import org.example.validaciones.AfiliadoValidacion;
 
@@ -14,7 +13,7 @@ public class Afiliado extends Usuario implements Ireporte{
     public Afiliado() {
     }
 
-    @Override
+    // @Override
     public Boolean registrar() {
         return null;
     }

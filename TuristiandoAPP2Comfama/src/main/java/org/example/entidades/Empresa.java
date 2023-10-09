@@ -75,5 +75,5 @@ public abstract class Empresa {
         this.descripcion = descripcion;
     }
 
-    public abstract Boolean cobrar();
+    public abstract Double cobrar();
 }
