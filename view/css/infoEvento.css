@@ -192,65 +192,45 @@ nav > ul > li:nth-child(4) {
 }
 
 
-
-.pie-pagina{
-    margin-top: 5rem;
-    background-color: rgb(19, 19, 19);
-    padding: 5rem;
-}
-
-.contenedor-piepagina{
-    display: flex;
-    justify-content: space-between;
-    max-width: 120rem;
-    margin: 0 auto;
-    width: 95%;
-}
-
-.btn-enviar{
-    background-color: #46899a;
-    font-weight: bold;
-    display: inline-block;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-.info{
-    flex: 0 0 calc(33% - 1rem);
-    margin-bottom: 2rem;
-}
-.info h3, .info p{
-    color:#ffffff;
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 40px 0;
     text-align: center;
 }
-.info h3{
-    font-size: 2rem;
-}
-.info p{
-    font-size: 1rem;
+
+/* Estilos para los iconos de redes sociales */
+.social-icons {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
 }
 
-
-.info input[type="email"]{
-    font-family: 'Mulish', sans-serif;;
+.social-icons li {
     display: inline-block;
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    border-radius: 10px;
-    outline: none;
-    width: 100%;
+    margin: 0 15px;
 }
 
-.info input[type="submit"]{
-    padding: .5rem 2rem;
-    font-size: 1rem;
-    border-radius: 10px;
+.social-icons a {
+    text-decoration: none;
+    color: #ccc;
+    font-size: 32px;
+    transition: color 0.3s ease;
 }
-.footer{
-    text-align: center;
-    background-color:#020202;
-    color:#fff;
-    padding: 2rem;
-    font-size: 1.5rem;
+
+.social-icons a:hover {
+    color: #fff;
+}
+
+
+.footer-text {
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.footer-link {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
