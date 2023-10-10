@@ -4,18 +4,18 @@ import jakarta.persistence.*;
 
 
 @Entity
-@Table(name = "usuarios")
-
+@Table(name = "Usuarios")
 public class ModeloUsuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idUsuario")
     private Integer id;
-    @Column(name="documento", nullable = false, length = 20)
-    private String documentos;
-    private String nombres;
+
+    @Column(nullable = false, length = 20)
+    private String documento;
+
+    private String nombre;
     private String correo;
-    private Integer ubicaciones;
+    private Integer ubicacion;
 
     public Integer getId() {
         return id;
@@ -25,20 +25,20 @@ public class ModeloUsuario {
         this.id = id;
     }
 
-    public String getDocumentos() {
-        return documentos;
+    public String getDocumento() {
+        return documento;
     }
 
-    public void setDocumentos(String documentos) {
-        this.documentos = documentos;
+    public void setDocumento(String documento) {
+        this.documento = documento;
     }
 
-    public String getNombres() {
-        return nombres;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getCorreo() {
@@ -49,11 +49,11 @@ public class ModeloUsuario {
         this.correo = correo;
     }
 
-    public Integer getUbicaciones() {
-        return ubicaciones;
+    public Integer getUbicacion() {
+        return ubicacion;
     }
 
-    public void setUbicaciones(Integer ubicaciones) {
-        this.ubicaciones = ubicaciones;
+    public void setUbicacion(Integer ubicacion) {
+        this.ubicacion = ubicacion;
     }
 }

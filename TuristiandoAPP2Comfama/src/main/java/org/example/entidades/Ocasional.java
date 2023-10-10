@@ -4,13 +4,15 @@ import org.example.entidades.interfaces.Ireporte;
 import org.example.validaciones.OcasionalValidacion;
 
 public class Ocasional extends Usuario implements Ireporte {
+
+    private Integer valorCuota;
+
+    private OcasionalValidacion validacion = new OcasionalValidacion();
+
     // @Override
     public Boolean registrar() {
         return null;
     }
-
-    private Integer valorCuota;
-    private OcasionalValidacion validacion = new OcasionalValidacion();
 
     public Ocasional() {
     }

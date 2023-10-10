@@ -6,15 +6,15 @@ import org.example.validaciones.ReservaValidacion;
 import java.time.LocalDate;
 
 public class Reserva {
-    protected Util util = new Util();
     private Integer id;
     private Usuario usuario;
     private Oferta oferta;
     private Double costoTotal = 0.0;
     private LocalDate fechaReserva;
+    private Integer numeroPersonas = 0;
 
-    private Integer numeroPersonas =0;
-    protected ReservaValidacion validacion = new ReservaValidacion();
+    private Util util = new Util();
+    private ReservaValidacion validacion = new ReservaValidacion();
 
     public Reserva() {
     }

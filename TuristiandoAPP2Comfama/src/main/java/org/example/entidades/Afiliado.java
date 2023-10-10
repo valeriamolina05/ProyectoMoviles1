@@ -6,8 +6,8 @@ import org.example.validaciones.AfiliadoValidacion;
 public class Afiliado extends Usuario implements Ireporte{
 
     private Integer valorMensualidad;
-
     private String cedulaInvitado;
+
     private AfiliadoValidacion validacion = new AfiliadoValidacion();
 
     public Afiliado() {

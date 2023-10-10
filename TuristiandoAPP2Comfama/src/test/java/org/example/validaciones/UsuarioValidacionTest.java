@@ -24,21 +24,21 @@ class UsuarioValidacionTest {
 
     public void validarNombresFuncionaCorrectamente(){
         String nombrePrueba= "Valeria Molina Caro"; //Preparar
-        Boolean respuesta = Assertions.assertDoesNotThrow(() ->this.validacion.validarNombres(nombrePrueba));
+        Boolean respuesta = Assertions.assertDoesNotThrow(() ->this.validacion.validarNombre(nombrePrueba));
         Assertions.assertTrue(respuesta);
     }
 
     @Test
     public void validarNombreFuncionaIncorrectoNumeroCaracteres(){
         String nombrePrueba = "Valeria";
-        Exception respuesta = Assertions.assertThrows(Exception.class, () ->this.validacion.validarNombres(nombrePrueba));
+        Exception respuesta = Assertions.assertThrows(Exception.class, () ->this.validacion.validarNombre(nombrePrueba));
         Assertions.assertEquals(Mensaje.NUMERO_CARACTERES_INVALIDO.getMensaje(), respuesta.getMessage());
     }
 
     @Test
     public void validarNombreFuncionaIncorrectoCaracteresInvalidos(){
         String nombrePrueba = "5555555555";
-         Exception respuesta =Assertions.assertThrows(Exception.class, () -> this.validacion.validarNombres(nombrePrueba));
+         Exception respuesta =Assertions.assertThrows(Exception.class, () -> this.validacion.validarNombre(nombrePrueba));
          Assertions.assertEquals(Mensaje.NOMBRE_INVALIDO.getMensaje(), respuesta.getMessage());
     }
 

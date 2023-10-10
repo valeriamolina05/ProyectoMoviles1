@@ -5,49 +5,75 @@ import org.example.validaciones.EntidadCulturalValidacion;
 
 public class EntidadCultural extends Empresa implements Ireporte {
 
-    private String nombreSecretaria;
-    private String misionSecretaria;
-    private EntidadCulturalValidacion validacion = new EntidadCulturalValidacion();
+    private String organizacion;
+    private String mision;
+    private String telefono;
+    private String correo;
+    private Double cobro;
 
-    @Override
-    public Double cobrar() {
-        Double cobro = 1200000 + (1200000 * 0.19) - (1200000 * 0.1);
-        return cobro;
-    }
+    private EntidadCulturalValidacion validacion = new EntidadCulturalValidacion();
 
     public EntidadCultural() {
     }
 
-    public EntidadCultural(Integer id, String nit, String nombre, Integer ubicacion, String descripcion, String nombreSecretaria, String misionSecretaria) {
+    public EntidadCultural(Integer id, String nit, String nombre, Integer ubicacion, String descripcion, String mision, String organizacion, String telefono, String correo) {
         super(id, nit, nombre, ubicacion, descripcion);
-        this.nombreSecretaria = nombreSecretaria;
-        this.misionSecretaria = misionSecretaria;
+        this.mision = mision;
+        this.organizacion = organizacion;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.cobro = getCobro();
     }
 
-    public String getNombreSecretaria() {
-        return nombreSecretaria;
+    public String getOrganizacion() {
+        return organizacion;
     }
 
-    public void setNombreSecretaria(String nombreSecretaria) {
+    public void setOrganizacion(String organizacion) {
         try {
-            this.validacion.validarNombreSecretaria(nombreSecretaria);
-            this.nombreSecretaria = nombreSecretaria;
+            this.validacion.validarOrganizacion(organizacion);
+            this.organizacion = organizacion;
         }catch (Exception error) {
             System.out.println("\u001B[37m" + error.getMessage() + "\u001B[0m");
         }
     }
 
-    public String getMisionSecretaria() {
-        return misionSecretaria;
+    public String getMision() {
+        return mision;
     }
 
-    public void setMisionSecretaria(String misionSecretaria) {
+    public void setMision(String mision) {
         try {
-            this.validacion.validarMisionSecretaria(misionSecretaria);
-            this.misionSecretaria = misionSecretaria;
+            this.validacion.validarMision(mision);
+            this.mision = mision;
         }catch (Exception error) {
             System.out.println("\u001B[37m" + error.getMessage() + "\u001B[0m");
         }
+    }
+
+    public String getTelefono() {
+        return this.telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getCorreo() {
+        return this.correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    @Override
+    public void cobrar() {
+        this.cobro = 1200000 + (1200000 * 0.19) - (1200000 * 0.1);
+    }
+        
+    public Double getCobro() {
+        return this.cobro;
     }
 
     @Override

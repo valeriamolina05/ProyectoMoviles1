@@ -5,14 +5,14 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import org.example.entidades.Usuario;
 import org.example.modelos.ModeloUsuario;
-
 import java.util.List;
 
 public class ServicioUsuario {
     private String persistenciaNombre;
-    //conexion con las entidades
     private EntityManagerFactory conexionEntidades;
-    private EntityManager manejadorConexionEntidades ;
+    private EntityManager manejadorConexionEntidades;
+    private ModeloUsuario modeloUsuario = new ModeloUsuario();
+
     public void conexion(){
         // Nombre documento de la entidad configurada en el ORM
         this.persistenciaNombre = "conexionbd";
@@ -20,20 +20,19 @@ public class ServicioUsuario {
         this.conexionEntidades = null;
         this.manejadorConexionEntidades = null;
 
-        conexionEntidades = Persistence.createEntityManagerFactory(persistenciaNombre);
-        manejadorConexionEntidades =conexionEntidades.createEntityManager();
+        this.conexionEntidades = Persistence.createEntityManagerFactory(persistenciaNombre);
+        this.manejadorConexionEntidades = conexionEntidades.createEntityManager();
     }
+
     public void guardarDatosBd(Usuario usuario){
 
         try {
             conexion();
 
-            ModeloUsuario modeloUsuario = new ModeloUsuario();
-
-            modeloUsuario.setNombres(usuario.getNombres());
-            modeloUsuario.setDocumentos(usuario.getDocumento());
+            modeloUsuario.setNombre(usuario.getNombre());
+            modeloUsuario.setDocumento(usuario.getDocumento());
             modeloUsuario.setCorreo(usuario.getCorreo());
-            modeloUsuario.setUbicaciones(usuario.getUbicacion());
+            modeloUsuario.setUbicacion(usuario.getUbicacion());
 
             manejadorConexionEntidades.getTransaction().begin();
             manejadorConexionEntidades.persist(modeloUsuario);
@@ -42,7 +41,7 @@ public class ServicioUsuario {
             System.out.println("¡Registro Usuario Exitoso!\n");
 
         }catch (Exception error){
-            error.getStackTrace();
+            error.printStackTrace();
 
         }finally{
             if(manejadorConexionEntidades!=null){
@@ -70,6 +69,5 @@ public class ServicioUsuario {
             conexionEntidades.close();
         }
     }
-
 
 }

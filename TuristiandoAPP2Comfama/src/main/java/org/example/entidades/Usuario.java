@@ -5,21 +5,22 @@ import org.example.validaciones.UsuarioValidacion;
 
 public class Usuario {
 
-    protected Util util = new Util();
     private Integer id;
     private String documento;
-    private String nombres;
+    private String nombre;
     private String correo;
     private Integer ubicacion;
-    protected UsuarioValidacion validacion = new UsuarioValidacion();
+
+    private Util util = new Util();
+    private UsuarioValidacion validacion = new UsuarioValidacion();
 
     public Usuario() {
     }
 
-    public Usuario(Integer id, String documento, String nombres, String correo, Integer ubicacion) {
+    public Usuario(Integer id, String documento, String nombre, String correo, Integer ubicacion) {
         this.id = id;
         this.documento = documento;
-        this.nombres = nombres;
+        this.nombre = nombre;
         this.correo = correo;
         this.ubicacion = ubicacion;
     }
@@ -41,14 +42,14 @@ public class Usuario {
     }
 
 
-    public String getNombres() {
-        return nombres;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombres(String nombres) {
+    public void setNombre(String nombre) {
       try {
-        this.validacion.validarNombres(nombres);
-        this.nombres = nombres;
+        this.validacion.validarNombre(nombre);
+        this.nombre = nombre;
       }catch (Exception error){
           System.out.println("\u001B[37m" + error.getMessage() +  "\u001B[0m");
       }

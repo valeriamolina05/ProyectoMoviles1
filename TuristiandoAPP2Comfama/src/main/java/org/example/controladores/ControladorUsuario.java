@@ -11,7 +11,7 @@ public class ControladorUsuario {
     private ServicioUsuario servicioUsuario = new ServicioUsuario();
 
     public void registrarUsuario(String documento, String nombre, String correo, Integer ubicacion){
-        usuario.setNombres(nombre);
+        usuario.setNombre(nombre);
         usuario.setCorreo(correo);
         usuario.setDocumento(documento);
         usuario.setUbicacion(ubicacion);

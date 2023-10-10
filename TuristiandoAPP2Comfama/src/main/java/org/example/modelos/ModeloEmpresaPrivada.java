@@ -12,15 +12,22 @@ import jakarta.persistence.Table;
 public class ModeloEmpresaPrivada {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idEPrivada")
     private Integer id;
-    @Column(name = "nit", nullable = false, length = 10)
+
+    @Column(nullable = false, length = 10)
     private String nit;
+
     @Column(nullable = false)
     private String nombre;
+
+    @Column(nullable = false)
+    private String nombreRepresentante;
+
+    @Column(nullable = false)
+    private String cedulaRepresentante;
+
     private Integer ubicacion;
     private String descripcion;
-    private String nombreRepresentante;
     private Double cobro;
 
     public Integer getId() {
@@ -79,5 +86,12 @@ public class ModeloEmpresaPrivada {
         this.cobro = cobro;
     }
 
+    public String getCedulaRepresentante() {
+        return this.cedulaRepresentante;
+    }
+
+    public void setCedulaRepresentante(String cedulaRepresentante) {
+        this.cedulaRepresentante = cedulaRepresentante;
+    }
     
 }

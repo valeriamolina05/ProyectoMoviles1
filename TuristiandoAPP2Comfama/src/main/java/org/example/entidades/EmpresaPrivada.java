@@ -6,13 +6,15 @@ import org.example.validaciones.EmpresaPrivadaValidacion;
 public class EmpresaPrivada extends Empresa implements Ireporte {
 
     private String nombreRepresentante;
+    private String cedulaRepresentante;
     private Double cobro;
+
     private EmpresaPrivadaValidacion validacion = new EmpresaPrivadaValidacion();
 
     public EmpresaPrivada() {
     }
 
-    public EmpresaPrivada(Integer id, String nit, String nombre, Integer ubicacion, String descripcion, String nombreRepresentante) {
+    public EmpresaPrivada(Integer id, String nit, String nombre, Integer ubicacion, String descripcion, String nombreRepresentante, String cedulaRepresentante) {
         super(id, nit, nombre, ubicacion, descripcion);
         this.nombreRepresentante = nombreRepresentante;
     }
@@ -30,10 +32,21 @@ public class EmpresaPrivada extends Empresa implements Ireporte {
         }
     }
 
+    public String getCedulaRepresentante() {
+        return this.cedulaRepresentante;
+    }
+
+    public void setCedulaRepresentante(String cedulaRepresentante) {
+        this.cedulaRepresentante = cedulaRepresentante;
+    }
+
     @Override
-    public Double cobrar() {
+    public void cobrar() {
         this.cobro = 2200000 + (2200000 * 0.19);
-        return cobro;
+    }
+        
+    public Double getCobro() {
+        return this.cobro;
     }
 
     @Override

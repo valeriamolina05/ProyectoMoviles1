@@ -4,13 +4,14 @@ import org.example.utilidades.Util;
 import org.example.validaciones.EmpresaValidacion;
 
 public abstract class Empresa {
-    protected Util util = new Util();
     private Integer id;
     private String nit;
     private String nombre;
     private Integer ubicacion;
     private String descripcion;
-    protected EmpresaValidacion validacion = new EmpresaValidacion();
+    
+    private Util util = new Util();
+    private EmpresaValidacion validacion = new EmpresaValidacion();
 
 
     public Empresa() {
@@ -75,5 +76,5 @@ public abstract class Empresa {
         this.descripcion = descripcion;
     }
 
-    public abstract Double cobrar();
+    public abstract void cobrar();
 }
