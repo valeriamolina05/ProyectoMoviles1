@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/0bbd10c3a8.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="./img/LogoCirculo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/login.css">
+    <title>Iniciar sesión</title>
+</head>
+<body>
+        <div class="container" id="login">
+            <h2>Iniciar sesión</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="tipo">Tipo:</label>
+                    <select id="tipo" name="tipo">
+                        <option value="afiliado">Afiliado</option>
+                        <option value="ocasional">Ocasional</option>
+                        <option value="empresa">Empresa Privada</option>
+                        <option value="entidad">Entidad Cultural</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="documento">Documento/NIT:</label>
+                    <input type="text" id="documento" name="documento">
+                </div>
+                <div class="form-group">
+                    <label for="contrasena">Contraseña:</label>
+                    <input type="password" id="contrasena" name="contrasena">
+                </div>
+                <a href="/view/index.html" class="button">Iniciar sesión</a>
+
+                <!-- <a href="/view/index.html"><button type="submit">Iniciar sesión</button></a> -->
+            </form>
+            <div class="register-link">
+                <p>¿No tienes cuenta? <a href="#registro">Regístrate</a></p>
+            </div>
+        </div>
+        <div class="container" id="registro">
+            <h2>Registrarse</h2>
+            <form id="registro-form">
+                <div class="form-group">
+                    <label for="registro-tipo">Tipo:</label>
+                    <select id="registro-tipo" name="registro-tipo">
+                        <option value="afiliado">Afiliado</option>
+                        <option value="ocasional">Ocasional</option>
+                        <option value="empresa">Empresa Privada</option>
+                        <option value="entidad">Entidad Cultural</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="registro-documento">Documento/NIT:</label>
+                    <input type="text" id="registro-documento" name="registro-documento">
+                </div>
+                <div class="form-group">
+                    <label for="registro-nombre">Nombre:</label>
+                    <input type="text" id="registro-nombre" name="registro-nombre">
+                </div>
+                <div class="form-group">
+                    <label for="registro-correo">Correo:</label>
+                    <input type="email" id="registro-correo" name="registro-correo">
+                </div>
+                <div class="form-group">
+                    <label for="registro-ubicacion">Ubicación:</label>
+                    <input type="text" id="registro-ubicacion" name="registro-ubicacion">
+                </div>
+                <button class="button">Registrarse</button>
+            </form>
+        </div>
+    </div>
+    <script src="/controllers/script.js"></script>
+</body>
+</html>
