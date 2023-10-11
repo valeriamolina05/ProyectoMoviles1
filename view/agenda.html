@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TuristiandoAPP</title>
+    <script
+      src="https://kit.fontawesome.com/0bbd10c3a8.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="shortcut icon"
+      href="./img/LogoCirculo.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./css/agenda.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="encabezado-superior">
+          <div class="logo">
+            <a href="index.html"><img src="./img/LogoPrincipal.png" alt="logo"></a>
+          </div>
+          <div class="busqueda">
+              <input type="search" placeholder="¿Qué deseas buscar?">
+          </div>
+      </div>
+      <div class="contenedor">
+          <div class="menu">
+              <nav>
+                  <ul> 
+                      <li><a href="index.html"><i class="fa-solid fa-house-chimney" style="color: #ffffff;"></i> Inicio</a></li>
+                      <li><a href="./agenda.html"><i class="fa-solid fa-calendar-week" style="color: #ffffff;"></i>Agenda</a></li>
+                      <li><a href="#"><i class="fa-solid fa-address-book" style="color: #ffffff;"></i>Contacto</a></li>
+                      <li><a href="./login.html"><i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i>Iniciar sesión</a></li>
+                  </ul>
+              </nav>
+          </div>
+      </div>
+  </header>
+
+    <div class="contenido">
+      
+      <div class="search-contenido">
+        <input type="text" class="search-box" placeholder="Buscar..." />
+        <select class="search-select">
+          <option value="opcion1">Todas las categorias</option>
+          <option value="opcion2">Arte y cultura</option>
+          <option value="opcion3">Musica y conciertos</option>
+          <option value="opcion3">Teatro</option>
+          <option value="opcion3">Bibliotecas</option>
+          <option value="opcion3">Otros</option>
+        </select>
+        <input type="date" class="calendar-input" />
+        <button class="search-button">Buscar</button>
+      </div>
+
+      <div class="card-container">
+        <div class="card" style="width: 22rem">
+          <a href="evento3.html">
+          <img src="./img/Evento1.jpg" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title">
+              Volver a eventos Lasso - Quedarse Solo Para Siempre World Tour
+              2023
+            </h5>
+            <div class="card-text">
+              <i class="fa-regular fa-calendar-days">
+                <span>Jue, Oct 12</span> </i
+              ><br />
+              <i class="fa-regular fa-clock">
+                <span>09:00 PM</span> </i
+              ><br />
+              <i class="fa-solid fa-location-dot">
+                <span>Medellín, Antioquia</span>
+              </i>
+            </div>
+          </div>
+        </a>
+        </div>
+
+        <div class="card" style="width: 22rem">
+          <a href="./evento1.html">
+          <img src="./img/Evento3.jpg" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title">
+              Festival de Lectores y Escritores, Envigado se pinta de letras
+              2023
+            </h5>
+            <div class="card-text">
+              <i class="fa-regular fa-calendar-days">
+                <span>Jue, Sep 28 - Sab, Sep 30</span> </i
+              ><br />
+              <i class="fa-regular fa-clock"> <span>06:00 PM</span> </i><br />
+              <i class="fa-solid fa-location-dot">
+                <span>Envigado, Antioquia</span>
+              </i>
+            </div>
+          </div>
+        </a>
+        </div>
+
+        <div class="card" style="width: 22rem">
+          <a href="evento2.html">
+          <img src="./img/Evento2.jpg" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title">Visitas Guiadas al Palacio Egipcio</h5>
+            <div class="card-text">
+              <i class="fa-regular fa-calendar-days">
+                <span>Vie, Sep 29 - Vie, Dic 29</span> </i
+              ><br />
+              <i class="fa-regular fa-clock">
+                <span>10:00 AM</span> </i
+              ><br />
+              <i class="fa-solid fa-location-dot">
+                <span>Medellín, Antioquia</span>
+              </i>
+            </div>
+          </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="card-container">
+        <div class="card" style="width: 22rem">
+          <a href="evento4.html">
+          <img src="./img/Evento4.jpg" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title">Los Cuatro Altares</h5>
+            <div class="card-text">
+              <i class="fa-regular fa-calendar-days">
+                <span>Mar, Oct 10</span> </i
+              ><br />
+              <i class="fa-regular fa-clock">
+                <span>08:00 PM </span> </i
+              ><br />
+              <i class="fa-solid fa-location-dot">
+                <span>Medellín, Antioquia</span>
+              </i>
+            </div>
+          </div>
+        </a>
+        </div>
+
+        <div class="card" style="width: 22rem">
+          <a href="evento5.html">
+          <img src="./img/Evento5.jpg" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title">Black & White Club</h5>
+            <div class="card-text">
+              <i class="fa-regular fa-calendar-days">
+                <span> Vie, Oct 13 - Sáb, Oct 14</span> </i
+              ><br />
+              <i class="fa-regular fa-clock">
+                <span>08:00 PM</span> </i
+              ><br />
+              <i class="fa-solid fa-location-dot">
+                <span>Medellín, Antioquia</span>
+              </i>
+            </div>
+          </div>
+        </a>
+        </div>
+
+        <div class="card" style="width: 22rem">
+          <a href="evento6.html">
+          <img src="./img/Evento6.jpg" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title">¿Alicia es un sueño? Canciones bipolares</h5>
+            <div class="card-text">
+              <i class="fa-regular fa-calendar-days">
+                <span>Mié, Oct 11 - Sáb, Oct 14</span> </i
+              ><br />
+              <i class="fa-regular fa-clock">
+                <span>07:30 PM - 07:30 PM</span> </i
+              ><br />
+              <i class="fa-solid fa-location-dot">
+                <span>Medellín, Antioquia</span>
+              </i>
+            </div>
+          </div>
+        </a>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <ul class="social-icons">
+          <li><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
+          <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+      </ul>
+      <p class="footer-text">Síguenos en nuestras redes sociales para estar al tanto de nuestros eventos. © 2023 TuristiandoApp</p>
+  </footer>
+  </body>
+</html>
