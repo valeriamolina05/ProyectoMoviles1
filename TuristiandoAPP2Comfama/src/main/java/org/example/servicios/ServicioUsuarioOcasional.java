@@ -1,17 +1,18 @@
 package org.example.servicios;
 
+import org.example.entidades.Ocasional;
+import org.example.modelos.ModeloOcasional;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-import org.example.entidades.Usuario;
-import org.example.modelos.ModeloUsuario;
-import java.util.List;
 
-public class ServicioUsuario {
+public class ServicioUsuarioOcasional {
     private String persistenciaNombre;
     private EntityManagerFactory conexionEntidades;
     private EntityManager manejadorConexionEntidades;
-    private ModeloUsuario modeloUsuario = new ModeloUsuario();
+
+    private ModeloOcasional modeloOcasional = new ModeloOcasional();
 
     public void conexion(){
         // Nombre documento de la entidad configurada en el ORM
@@ -24,21 +25,22 @@ public class ServicioUsuario {
         this.manejadorConexionEntidades = conexionEntidades.createEntityManager();
     }
 
-    public void guardarDatosBd(Usuario usuario){
+    public void guardarDatosBd(Ocasional ocasional){
 
         try {
             conexion();
 
-            modeloUsuario.setNombre(usuario.getNombre());
-            modeloUsuario.setDocumento(usuario.getDocumento());
-            modeloUsuario.setCorreo(usuario.getCorreo());
-            modeloUsuario.setUbicacion(usuario.getUbicacion());
+            modeloOcasional.setNombre(ocasional.getNombre());
+            modeloOcasional.setDocumento(ocasional.getDocumento());
+            modeloOcasional.setCorreo(ocasional.getCorreo());
+            modeloOcasional.setContraseña(ocasional.getContraseña());
+            modeloOcasional.setValorCuota(ocasional.getValorCuota());
 
             manejadorConexionEntidades.getTransaction().begin();
-            manejadorConexionEntidades.persist(modeloUsuario);
+            manejadorConexionEntidades.persist(modeloOcasional);
             manejadorConexionEntidades.getTransaction().commit();
 
-            System.out.println("¡Registro Usuario Exitoso!\n");
+            System.out.println("¡Registro Usuario Ocacional Exitoso!\n");
 
         }catch (Exception error){
             error.printStackTrace();
@@ -53,21 +55,4 @@ public class ServicioUsuario {
         }
 
     }
-
-    public List<ModeloUsuario> consultarDatosBd(Usuario usuario){
-
-        try{
-            conexion();
-            String consulta = "SELECT modelousuario ModeloUsuario modelousuario";
-
-            List<ModeloUsuario> usuarios = manejadorConexionEntidades.createQuery(consulta, ModeloUsuario.class).getResultList();
-            return usuarios;
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-            return null;
-        }finally {
-            conexionEntidades.close();
-        }
-    }
-
 }

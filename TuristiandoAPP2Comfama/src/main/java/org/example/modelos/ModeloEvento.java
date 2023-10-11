@@ -1,6 +1,6 @@
 package org.example.modelos;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,8 +12,8 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Ofertas")
-public class ModeloOferta {
+@Table(name = "Eventos")
+public class ModeloEvento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -24,11 +24,14 @@ public class ModeloOferta {
     @Column(length = 200)
     private String descripcion;
 
-    @Column(nullable = false)
-    private LocalDate fechaInicio;
+    @Column(nullable = false, columnDefinition = "DATETIME")
+    private LocalDateTime fechaInicio;
 
-    @Column(nullable = false)
-    private LocalDate fechaFin;
+    @Column(nullable = false, columnDefinition = "DATETIME")
+    private LocalDateTime fechaFin;
+
+    @Column(nullable = true)
+    private String categoria;
 
     @ManyToOne
     @JoinColumn(name = "entidad_cultural_id", nullable = true)
@@ -39,20 +42,7 @@ public class ModeloOferta {
     private ModeloEmpresaPrivada empresaPrivada;
 
     private Double costoPersona;
-
-    public ModeloOferta() {
-    }
-
-    public ModeloOferta(Integer id, String titulo, String descripcion, LocalDate fechaInicio, LocalDate fechaFin, ModeloEntidadCultural entidadCultural, ModeloEmpresaPrivada empresaPrivada, Double costoPersona) {
-        this.id = id;
-        this.titulo = titulo;
-        this.descripcion = descripcion;
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
-        this.entidadCultural = entidadCultural;
-        this.empresaPrivada = empresaPrivada;
-        this.costoPersona = costoPersona;
-    }
+    private String ubicacion;
 
     public Integer getId() {
         return this.id;
@@ -78,19 +68,19 @@ public class ModeloOferta {
         this.descripcion = descripcion;
     }
 
-    public LocalDate getFechaInicio() {
+    public LocalDateTime getFechaInicio() {
         return this.fechaInicio;
     }
 
-    public void setFechaInicio(LocalDate fechaInicio) {
+    public void setFechaInicio(LocalDateTime fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public LocalDate getFechaFin() {
+    public LocalDateTime getFechaFin() {
         return this.fechaFin;
     }
 
-    public void setFechaFin(LocalDate fechaFin) {
+    public void setFechaFin(LocalDateTime fechaFin) {
         this.fechaFin = fechaFin;
     }
 
@@ -102,6 +92,21 @@ public class ModeloOferta {
         this.costoPersona = costoPersona;
     }
 
+    public String getCategoria() {
+        return this.categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getUbicacion() {
+        return this.ubicacion;
+    }
+
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
+    }
 
     public ModeloEntidadCultural getEntidadCultural() {
         return this.entidadCultural;
@@ -117,7 +122,6 @@ public class ModeloOferta {
 
     public void setEmpresaPrivada(ModeloEmpresaPrivada empresaPrivada) {
         this.empresaPrivada = empresaPrivada;
-    }
-
-
+    }    
+    
 }

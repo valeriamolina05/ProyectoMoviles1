@@ -63,4 +63,14 @@ public class EmpresaPrivada extends Empresa implements Ireporte {
     public void buscarReporte(Integer id) {
 
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+            " nombreRepresentante='" + getNombreRepresentante() + "'" +
+            ", cedulaRepresentante='" + getCedulaRepresentante() + "'" +
+            ", cobro='" + getCobro() + "'" +
+            "}";
+    }
+
 }

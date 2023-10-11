@@ -1,20 +1,20 @@
 package org.example.servicios;
 
-import org.example.entidades.Oferta;
+import org.example.entidades.Evento;
 import org.example.modelos.ModeloEmpresaPrivada;
 import org.example.modelos.ModeloEntidadCultural;
-import org.example.modelos.ModeloOferta;
+import org.example.modelos.ModeloEvento;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-public class ServicioOfrerta {
+public class ServicioEvento {
     
-    private ModeloOferta modeloOferta = new ModeloOferta();
-
+    private ModeloEvento modeloEvento = new ModeloEvento();
     private ModeloEntidadCultural entidadCultural;
     private ModeloEmpresaPrivada empresaPrivada;
+
     private String persistenciaNombre;
     private EntityManagerFactory conexionEntidades;
     private EntityManager manejadorConexionEntidades;
@@ -30,7 +30,7 @@ public class ServicioOfrerta {
         this.manejadorConexionEntidades = conexionEntidades.createEntityManager();
     }
 
-    public void guardarDatosBd(Oferta oferta, Integer idECultural, Integer idEPrivada) {
+    public void guardarDatosBd(Evento evento, Integer idECultural, Integer idEPrivada) {
         try {
             conexion();
 
@@ -41,19 +41,21 @@ public class ServicioOfrerta {
                 empresaPrivada = manejadorConexionEntidades.find(ModeloEmpresaPrivada.class, idEPrivada);
             }
 
-            modeloOferta.setDescripcion(oferta.getDescripcion());
-            modeloOferta.setFechaFin(oferta.getFechaFin());
-            modeloOferta.setFechaInicio(oferta.getFechaInicio());
-            modeloOferta.setTitulo(oferta.getTitulo());
-            modeloOferta.setCostoPersona(oferta.getCostoPersona());
-            modeloOferta.setEmpresaPrivada(empresaPrivada);
-            modeloOferta.setEntidadCultural(entidadCultural);
+            modeloEvento.setDescripcion(evento.getDescripcion());
+            modeloEvento.setFechaFin(evento.getFechaFin());
+            modeloEvento.setFechaInicio(evento.getFechaInicio());
+            modeloEvento.setTitulo(evento.getTitulo());
+            modeloEvento.setCostoPersona(evento.getCostoPersona());
+            modeloEvento.setCategoria(evento.getCategoriaEvento());
+            modeloEvento.setUbicacion(evento.getUbicacion());
+            modeloEvento.setEmpresaPrivada(empresaPrivada);
+            modeloEvento.setEntidadCultural(entidadCultural);
 
             manejadorConexionEntidades.getTransaction().begin();
-            manejadorConexionEntidades.persist(modeloOferta);
+            manejadorConexionEntidades.persist(modeloEvento);
             manejadorConexionEntidades.getTransaction().commit();
 
-            System.out.println("¡Oferta registrada con exito!\n");
+            System.out.println("¡Evento registrada con exito!\n");
 
         } catch (Exception error) {
             error.printStackTrace();

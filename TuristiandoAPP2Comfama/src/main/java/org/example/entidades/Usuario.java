@@ -3,12 +3,13 @@ package org.example.entidades;
 import org.example.utilidades.Util;
 import org.example.validaciones.UsuarioValidacion;
 
-public class Usuario {
+public abstract class Usuario {
 
     private Integer id;
     private String documento;
     private String nombre;
     private String correo;
+    private String contraseña;
     private Integer ubicacion;
 
     private Util util = new Util();
@@ -17,12 +18,12 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(Integer id, String documento, String nombre, String correo, Integer ubicacion) {
+    public Usuario(Integer id, String documento, String nombre, String correo, String contraseña) {
         this.id = id;
         this.documento = documento;
         this.nombre = nombre;
         this.correo = correo;
-        this.ubicacion = ubicacion;
+        this.contraseña = contraseña;
     }
 
     public Integer getId() {
@@ -68,6 +69,14 @@ public class Usuario {
         }
     }
 
+    public String getContraseña() {
+        return this.contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
+
     public Integer getUbicacion() {
         return ubicacion;
     }
@@ -81,9 +90,7 @@ public class Usuario {
        }
     }
 
-
-    //1.Registrarse en plataforma
-    // public abstract Boolean registrar();
+    public abstract void registrar(String documento, String nombre, String email, String contraseña);
 
 
 }

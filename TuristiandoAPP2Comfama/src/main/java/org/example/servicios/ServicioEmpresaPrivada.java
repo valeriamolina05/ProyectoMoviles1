@@ -13,8 +13,6 @@ public class ServicioEmpresaPrivada {
     private EntityManager manejadorConexionEntidades;
     private ModeloEmpresaPrivada modeloEmpresaPrivada = new ModeloEmpresaPrivada();
 
-
-
     public void conexion(){
         // Nombre documento de la entidad configurada en el ORM
         this.persistenciaNombre = "conexionbd";

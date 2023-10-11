@@ -8,10 +8,10 @@ import java.time.LocalDate;
 public class Reserva {
     private Integer id;
     private Usuario usuario;
-    private Oferta oferta;
-    private Double costoTotal = 0.0;
+    private Evento evento;
+    private Double costoTotal;
     private LocalDate fechaReserva;
-    private Integer numeroPersonas = 0;
+    private Integer numeroPersonas;
 
     private Util util = new Util();
     private ReservaValidacion validacion = new ReservaValidacion();
@@ -19,10 +19,10 @@ public class Reserva {
     public Reserva() {
     }
 
-    public Reserva(Integer id, Usuario usuario, Oferta oferta, Double costoTotal, LocalDate fechaReserva, Integer numeroPersonas) {
+    public Reserva(Integer id, Usuario usuario, Evento evento, Double costoTotal, LocalDate fechaReserva, Integer numeroPersonas) {
         this.id = id;
         this.usuario = usuario;
-        this.oferta = oferta;
+        this.evento = evento;
         this.costoTotal = costoTotal;
         this.fechaReserva = fechaReserva;
         this.numeroPersonas = numeroPersonas;
@@ -45,12 +45,12 @@ public class Reserva {
         this.usuario = usuario;
     }
 
-    public Oferta getOferta() {
-        return oferta;
+    public Evento getEvento() {
+        return evento;
     }
 
-    public void setOferta(Oferta oferta) {
-        this.oferta = oferta;
+    public void setEvento(Evento evento) {
+        this.evento = evento;
     }
 
     public Double getCostoTotal() {

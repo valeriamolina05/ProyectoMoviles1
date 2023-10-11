@@ -5,6 +5,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Util {
+    
+    public DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+
     public boolean validarExpresionRegular(String cadena, String expresionregular){
         Pattern patron = Pattern.compile(expresionregular);
         Matcher coincidencia = patron.matcher(cadena);
@@ -20,8 +23,6 @@ public class Util {
         idGenerado = (int) (Math.random() * 501);
         return idGenerado;
     }
-
-    public DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public double calcularIVA(double costoTotal) {
         return costoTotal * 0.19;

@@ -8,10 +8,10 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 public class ServicioEntidadCultural {
-    String persistenciaNombre;
-    EntityManagerFactory conexionEntidades;
-    EntityManager manejadorConexionEntidades;
-    ModeloEntidadCultural modeloEntidadCultural = new ModeloEntidadCultural();
+    private String persistenciaNombre;
+    private EntityManagerFactory conexionEntidades;
+    private EntityManager manejadorConexionEntidades;
+    private ModeloEntidadCultural modeloEntidadCultural = new ModeloEntidadCultural();
 
     public void conexion(){
         // Nombre documento de la entidad configurada en el ORM
@@ -40,7 +40,6 @@ public class ServicioEntidadCultural {
             manejadorConexionEntidades.persist(modeloEntidadCultural);
             manejadorConexionEntidades.getTransaction().commit();
 
-            
             System.out.println("¡Entidad Cultural registrada con exito!\n");
             
         }catch (Exception error){

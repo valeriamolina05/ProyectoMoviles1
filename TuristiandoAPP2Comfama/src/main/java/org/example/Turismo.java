@@ -2,24 +2,28 @@ package org.example;
 
 import org.example.controladores.ControladorEmpresaPrivada;
 import org.example.controladores.ControladorEntidadCultural;
-import org.example.controladores.ControladorOferta;
-import org.example.controladores.ControladorUsuario;
+import org.example.controladores.ControladorEvento;
+// import org.example.controladores.ControladorUsuario;
 // import java.util.Scanner;
+import org.example.controladores.ControladorUsuarioOcacional;
 
 public class Turismo {
     public static void main(String[] args) {
 
-        ControladorUsuario controladorUsuario = new ControladorUsuario();
-        controladorUsuario.registrarUsuario("1234567890", "Sebastian Espitia Sanchez", "Sebas@gmail.com", 2);
+        // ControladorUsuario controladorUsuario = new ControladorUsuario();
+        // controladorUsuario.registrarUsuario("1234567890", "Sebastian Espitia
+        // Sanchez", "Sebas@gmail.com", 2);
 
         ControladorEmpresaPrivada controladorEPrivada = new ControladorEmpresaPrivada();
-        controladorEPrivada.registrarEmpresa("1234567890", "BarnilSA", null, null, "Manuel Fernando", "1006868645" );
+        controladorEPrivada.registrarEmpresa("1234567890", "BarnilSA", null, null, "Manuel Fernando", "1006868645");
 
         ControladorEntidadCultural controladorEcultural = new ControladorEntidadCultural();
         controladorEcultural.registrarEmpresa("1029384756", "Sol", null, null, null, "manos verdes", "3129368570", "manosverdes@gmail.org");
 
-        ControladorOferta controladorOferta = new ControladorOferta();
-        controladorOferta.registrarOferta("2X1", null, null, null, 1000.0, 1, null);
-        
+        ControladorEvento controladorEvento = new ControladorEvento();
+        controladorEvento.registrarEvento("Siembra", null, "01/02/2022 09:06", "01/03/2022 09:06", 1000.0, null, null, 1, null);
+
+        ControladorUsuarioOcacional controladorUsuarioOcacional = new ControladorUsuarioOcacional();
+        controladorUsuarioOcacional.registrarUsuarioOcasional("10056868645", "Sebastian Espitia Sanchez", "Sebas@gmail.com", "C0ntr4s3ñ@", null);
     }
 }
