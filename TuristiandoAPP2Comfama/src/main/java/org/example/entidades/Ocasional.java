@@ -4,27 +4,24 @@ import org.example.entidades.interfaces.Ireporte;
 import org.example.validaciones.OcasionalValidacion;
 
 public class Ocasional extends Usuario implements Ireporte {
-    // @Override
-    public Boolean registrar() {
-        return null;
-    }
 
-    private Integer valorCuota;
+    private Double valorCuota;
+
     private OcasionalValidacion validacion = new OcasionalValidacion();
 
     public Ocasional() {
     }
 
-    public Ocasional(Integer id, String documento, String nombres, String correo, Integer ubicacion, Integer valorCuota) {
-        super(id, documento, nombres, correo, ubicacion);
+    public Ocasional(Integer id, String documento, String nombre, String correo, String contraseña, Double valorCuota) {
+        super(id, documento, nombre, correo, contraseña);
         this.valorCuota = valorCuota;
     }
 
-    public Integer getValorCuota() {
+    public Double getValorCuota() {
         return valorCuota;
     }
 
-    public void setValorCuota(Integer valorCuota) {
+    public void setValorCuota(Double valorCuota) {
         try {
             this.validacion.validarValorCuota(valorCuota);
             this.valorCuota = valorCuota;
@@ -34,17 +31,35 @@ public class Ocasional extends Usuario implements Ireporte {
     }
 
     @Override
-    public void generarReporte() {
+    public void registrar(String documento, String nombre, String correo, String contraseña) {
+        setDocumento(documento);
+        setNombre(nombre);
+        setCorreo(correo);
+        setContraseña(contraseña);
+    }
 
+    @Override
+    public void generarReporte() {
     }
 
     @Override
     public void editarReporte(Integer id, String datosNuevos) {
-
     }
 
     @Override
     public void buscarReporte(Integer id) {
-
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", documento='" + getDocumento() + "'" +
+            ", nombre='" + getNombre() + "'" +
+            ", correo='" + getCorreo() + "'" +
+            ", contraseña='" + getContraseña() + "'" +
+            ", valorCuota='" + getValorCuota() + "'" +
+            "}";
+    }
+
 }

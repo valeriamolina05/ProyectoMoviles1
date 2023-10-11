@@ -12,6 +12,7 @@ public class EmpresaValidacion {
     }
 
     public boolean validarNit (String nit) throws Exception{
+
         //1. Validar que el nit tenga 10 digitos
         if (nit.length() != 10) {
             throw new Exception(Mensaje.NIT_INVALIDO.getMensaje());

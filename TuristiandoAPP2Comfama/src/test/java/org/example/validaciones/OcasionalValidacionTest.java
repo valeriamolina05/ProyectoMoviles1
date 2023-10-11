@@ -18,14 +18,14 @@ class OcasionalValidacionTest {
 
     @Test
     public void validarCostoCuotaCorrecto(){
-        Integer costoPrueba = 10000;
+        Double costoPrueba = 10000.00;
         Boolean respuesta = Assertions.assertDoesNotThrow(() ->this.ocasionalValidacion.validarValorCuota(costoPrueba));
         Assertions.assertTrue(respuesta);
     }
 
     @Test
     public void validarCostoCuotaIncorrecto(){
-        Integer costoPrueba = -10000;
+        Double costoPrueba = -10000.00;
         Exception respuesta = Assertions.assertThrows(Exception.class,() ->this.ocasionalValidacion.validarValorCuota(costoPrueba));
         Assertions.assertEquals(Mensaje.COSTO_PERSONA_INVALIDO.getMensaje(), respuesta.getMessage());
     }

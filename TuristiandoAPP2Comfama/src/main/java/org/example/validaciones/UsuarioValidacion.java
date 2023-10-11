@@ -10,7 +10,7 @@ public class UsuarioValidacion {
     public UsuarioValidacion() {
     }
 
-    public boolean validarNombres(String nombres) throws Exception{
+    public boolean validarNombre(String nombres) throws Exception{
         if(nombres.length()<10){
             throw new Exception(Mensaje.NUMERO_CARACTERES_INVALIDO.getMensaje());
         } else if (!util.validarExpresionRegular(nombres, "^[a-zA-Z ]+$")) {

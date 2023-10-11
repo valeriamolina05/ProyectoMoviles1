@@ -7,26 +7,35 @@ import org.example.entidades.EmpresaPrivada;
 import org.example.modelos.ModeloEmpresaPrivada;
 
 public class ServicioEmpresaPrivada {
-    public void guardarDatosBd(EmpresaPrivada empresaPrivada){
+
+    private String persistenciaNombre;
+    private EntityManagerFactory conexionEntidades;
+    private EntityManager manejadorConexionEntidades;
+    private ModeloEmpresaPrivada modeloEmpresaPrivada = new ModeloEmpresaPrivada();
+
+    public void conexion(){
         // Nombre documento de la entidad configurada en el ORM
-        String persistenciaNombre = "conexionbd";
-
+        this.persistenciaNombre = "conexionbd";
         //conexion con las entidades
+        this.conexionEntidades = null;
+        this.manejadorConexionEntidades = null;
 
-        EntityManagerFactory conexionEntidades = null;
-        EntityManager manejadorConexionEntidades = null;
+        this.conexionEntidades = Persistence.createEntityManagerFactory(persistenciaNombre);
+        this.manejadorConexionEntidades = conexionEntidades.createEntityManager();
+    }
+
+    public void guardarDatosBd(EmpresaPrivada empresaPrivada){
 
         try {
-            conexionEntidades = Persistence.createEntityManagerFactory(persistenciaNombre);
-            manejadorConexionEntidades =conexionEntidades.createEntityManager();
-            ModeloEmpresaPrivada modeloEmpresaPrivada = new ModeloEmpresaPrivada();
+            conexion();
 
             modeloEmpresaPrivada.setNit(empresaPrivada.getNit());
             modeloEmpresaPrivada.setNombre(empresaPrivada.getNombre());
             modeloEmpresaPrivada.setDescripcion(empresaPrivada.getDescripcion());
             modeloEmpresaPrivada.setNombreRepresentante(empresaPrivada.getNombreRepresentante());
+            modeloEmpresaPrivada.setCedulaRepresentante(empresaPrivada.getCedulaRepresentante());
             modeloEmpresaPrivada.setUbicacion(empresaPrivada.getUbicacion());
-            modeloEmpresaPrivada.setCobro(empresaPrivada.cobrar());
+            modeloEmpresaPrivada.setCobro(empresaPrivada.getCobro());
 
             manejadorConexionEntidades.getTransaction().begin();
             manejadorConexionEntidades.persist(modeloEmpresaPrivada);
@@ -35,7 +44,7 @@ public class ServicioEmpresaPrivada {
             System.out.println("¡Empresa privada registrada con exito!\n");
 
         }catch (Exception error){
-            error.getStackTrace();
+            error.printStackTrace();
 
         }finally{
             if(manejadorConexionEntidades!=null){

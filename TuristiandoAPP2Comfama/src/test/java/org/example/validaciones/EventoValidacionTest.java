@@ -5,17 +5,17 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 // import static org.junit.jupiter.api.Assertions.*;
 
-class OfertaValidacionTest {
+class EventoValidacionTest {
 
-    private OfertaValidacion validacion;
+    private EventoValidacion validacion;
 
     @BeforeEach
     public void configurarPruebas(){
-        this.validacion = new OfertaValidacion();
+        this.validacion = new EventoValidacion();
         System.out.println("Iniciando prueba...");
     }
 
@@ -63,8 +63,8 @@ class OfertaValidacionTest {
 
     @Test
     public void validarFechaFuncionaCorrectamente(){
-        LocalDate fechaInicial = LocalDate.of(2023, 8, 17);
-        LocalDate fechaFinal= LocalDate.of(2023, 8, 20);
+        LocalDateTime fechaInicial = LocalDateTime.of(2023, 8, 17, 0, 0);
+        LocalDateTime fechaFinal= LocalDateTime.of(2023, 8, 20, 0, 0);
         Boolean respuesta = Assertions.assertDoesNotThrow(() -> this.validacion.validarFecha(fechaInicial, fechaFinal));
         Assertions.assertTrue(respuesta);
 
@@ -72,8 +72,8 @@ class OfertaValidacionTest {
 
     @Test
     public void validarFechaFuncionaIncorrectamente(){
-        LocalDate fechaInicial = LocalDate.of(2023, 8, 17);
-        LocalDate fechaFinal= LocalDate.of(2023, 8, 14);
+        LocalDateTime fechaInicial = LocalDateTime.of(2023, 8, 17, 0, 0);
+        LocalDateTime fechaFinal= LocalDateTime.of(2023, 8, 14, 0, 0);
         Exception respuesta =Assertions.assertThrows(Exception.class, ()-> this.validacion.validarFecha(fechaInicial, fechaFinal));
         Assertions.assertEquals(Mensaje.FECHA_INVALIDA.getMensaje(), respuesta.getMessage());
     }
