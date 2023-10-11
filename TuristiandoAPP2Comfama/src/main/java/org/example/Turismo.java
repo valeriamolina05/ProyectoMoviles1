@@ -8,11 +8,7 @@ import org.example.controladores.ControladorEvento;
 import org.example.controladores.ControladorUsuarioOcacional;
 
 public class Turismo {
-    public static void main(String[] args) {
-
-        // ControladorUsuario controladorUsuario = new ControladorUsuario();
-        // controladorUsuario.registrarUsuario("1234567890", "Sebastian Espitia
-        // Sanchez", "Sebas@gmail.com", 2);
+        public static void main(String[] args) {
 
         ControladorEmpresaPrivada controladorEPrivada = new ControladorEmpresaPrivada();
         controladorEPrivada.registrarEmpresa("1234567890", "BarnilSA", null, null, "Manuel Fernando", "1006868645");
