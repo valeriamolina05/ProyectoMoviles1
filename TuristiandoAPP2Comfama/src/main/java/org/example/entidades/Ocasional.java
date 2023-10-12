@@ -49,17 +49,4 @@ public class Ocasional extends Usuario implements Ireporte {
     @Override
     public void buscarReporte(Integer id) {
     }
-
-    @Override
-    public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", documento='" + getDocumento() + "'" +
-            ", nombre='" + getNombre() + "'" +
-            ", correo='" + getCorreo() + "'" +
-            ", contraseña='" + getContraseña() + "'" +
-            ", valorCuota='" + getValorCuota() + "'" +
-            "}";
-    }
-
 }

@@ -8,9 +8,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Ocasionales")
+@Table(name = "Afiliados")
 
-public class ModeloOcasional {
+public class ModeloAfiliado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -27,8 +27,11 @@ public class ModeloOcasional {
     @Column(nullable = false)
     private String contraseña;
 
+    @Column(nullable = false)
+    private Double valorMensualidad;
+
     @Column(nullable = true)
-    private Double valorCuota;
+    private String cedulaInvitado;
 
 
     public Integer getId() {
@@ -71,14 +74,21 @@ public class ModeloOcasional {
         this.contraseña = contraseña;
     }
 
-    public Double getValorCuota() {
-        return this.valorCuota;
+    public Double getValorMensualidad() {
+        return this.valorMensualidad;
     }
 
-    public void setValorCuota(Double valorCuota) {
-        this.valorCuota = valorCuota;
+    public void setValorMensualidad(Double valorMensualidad) {
+        this.valorMensualidad = valorMensualidad;
     }
 
+    public String getCedulaInvitado() {
+        return this.cedulaInvitado;
+    }
+
+    public void setCedulaInvitado(String cedulaInvitado) {
+        this.cedulaInvitado = cedulaInvitado;
+    }
 
     @Override
     public String toString() {
@@ -88,7 +98,8 @@ public class ModeloOcasional {
             ", nombre= " + getNombre() + "\n" +
             ", correo= " + getCorreo() + "\n" +
             ", contraseña= " + getContraseña() + "\n" +
-            ", valorCuota= " + getValorCuota() + "\n" +
+            ", valorMensualidad= " + getValorMensualidad() + "\n" +
+            ", cedulaInvitado= " + getCedulaInvitado() + "\n" +
             "}";
     }
 

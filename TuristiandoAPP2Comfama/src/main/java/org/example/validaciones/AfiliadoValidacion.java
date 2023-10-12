@@ -12,7 +12,7 @@ public class AfiliadoValidacion {
     public AfiliadoValidacion() {
     }
 
-    public boolean validarCostoMensualidad(Integer valorMensual) throws Exception{
+    public boolean validarCostoMensualidad(Double valorMensual) throws Exception{
         if (valorMensual < 0){
             throw new Exception(Mensaje.COSTO_PERSONA_INVALIDO.getMensaje());
         } else if (valorMensual > 100000) {

@@ -113,5 +113,22 @@ public class ModeloEntidadCultural {
     public void setCobro(Double cobro) {
         this.cobro = cobro;
     }
-    
+
+
+    @Override
+    public String toString() {
+        return "{" +
+            "\n id= " + getId() + "\n" +
+            ", nit= " + getNit() + "\n" +
+            ", nombre= " + getNombre() + "\n" +
+            ", organizacion= " + getOrganizacion() + "\n" +
+            ", descripcion= " + getDescripcion() + "\n" +
+            ", mision= " + getMision() + "\n" +
+            ", ubicacion= " + getUbicacion() + "\n" +
+            ", telefono= " + getTelefono() + "\n" +
+            ", correo= " + getCorreo() + "\n" +
+            ", cobro= " + getCobro() + "\n" +
+            "}";
+    }
+
 }

@@ -23,7 +23,7 @@ public enum Mensaje {
     COSTO_CUOTA_INVALIDO("El valor de la cuota no debe superar el monto de 200.0000"),
     COSTO_MENSUALIDAD_INVALIDO("El valor de la mensualidad no debe superar el monto de 100.000"),
 
-    CATEGORIA_INVALIDA("La categoría de evento no es válida"),
+    CATEGORIA_INVALIDA("Categoría inválida. Las categorías deben estar separadas por comas o espacios."),
     UBICACION_INVALIDA("La ubicacion de evento no es válida");
 
 

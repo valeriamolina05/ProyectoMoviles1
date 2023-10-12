@@ -1,11 +1,13 @@
 package org.example.controladores;
 
 import org.example.entidades.Evento;
+import org.example.modelos.ModeloEvento;
 import org.example.servicios.ServicioEvento;
 
 public class ControladorEvento {
     Evento evento = new Evento();
-    ServicioEvento servicioOfrerta = new ServicioEvento();
+
+    ServicioEvento servicioEvento = new ServicioEvento();
 
     public void registrarEvento(String titulo, String descripcion, String fechaInicio, String fechaFin,
             Double costoPersona, String categoria, String ubicacion, Integer idECultural, Integer idEPrivada) {
@@ -17,7 +19,11 @@ public class ControladorEvento {
         evento.setCategoriaEvento(categoria);
         evento.setUbicacion(ubicacion);
 
-        servicioOfrerta.guardarDatosBd(evento, idECultural, idEPrivada);
+        servicioEvento.guardarDatosBd(evento, idECultural, idEPrivada);
+    }
+
+    public ModeloEvento buscarEvento(Integer id){
+        return servicioEvento.buscarEvento(id);
     }
 
 }

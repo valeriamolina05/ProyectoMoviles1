@@ -30,6 +30,16 @@ public class ServicioEvento {
         this.manejadorConexionEntidades = conexionEntidades.createEntityManager();
     }
 
+
+    public void cerrarConexion() {
+        if (this.manejadorConexionEntidades != null) {
+            this.manejadorConexionEntidades.close();
+        }
+        if (this.conexionEntidades != null) {
+            this.manejadorConexionEntidades.close();
+        }
+    }
+
     public void guardarDatosBd(Evento evento, Integer idECultural, Integer idEPrivada) {
         try {
             conexion();
@@ -61,13 +71,16 @@ public class ServicioEvento {
             error.printStackTrace();
 
         } finally {
-            if (manejadorConexionEntidades != null) {
-                manejadorConexionEntidades.close();
-            }
-            if (conexionEntidades != null) {
-                manejadorConexionEntidades.close();
-            }
+           cerrarConexion();
         }
+    }
+
+    public ModeloEvento buscarEvento(Integer id){
+        conexion();
+        ModeloEvento modeloEvento2;
+        modeloEvento2 = manejadorConexionEntidades.find(ModeloEvento.class, id);
+        cerrarConexion();
+        return modeloEvento2;
     }
 
 }

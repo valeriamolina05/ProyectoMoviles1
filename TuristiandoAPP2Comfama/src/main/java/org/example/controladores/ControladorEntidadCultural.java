@@ -1,6 +1,7 @@
 package org.example.controladores;
 
 import org.example.entidades.EntidadCultural;
+import org.example.modelos.ModeloEntidadCultural;
 import org.example.servicios.ServicioEntidadCultural;
 
 public class ControladorEntidadCultural {
@@ -19,6 +20,9 @@ public class ControladorEntidadCultural {
         entidadCultural.cobrar();
 
         servicioEntidadCultural.guardarDatosBd(entidadCultural);
-        
+    }
+
+    public ModeloEntidadCultural buscarEntidadCultural(Integer id){
+        return servicioEntidadCultural.buscarEntidadCultural(id);
     }
 }

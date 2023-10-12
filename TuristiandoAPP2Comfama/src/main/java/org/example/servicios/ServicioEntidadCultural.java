@@ -8,10 +8,12 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 public class ServicioEntidadCultural {
+    
+    private ModeloEntidadCultural modeloEntidadCultural = new ModeloEntidadCultural();
+
     private String persistenciaNombre;
     private EntityManagerFactory conexionEntidades;
     private EntityManager manejadorConexionEntidades;
-    private ModeloEntidadCultural modeloEntidadCultural = new ModeloEntidadCultural();
 
     public void conexion(){
         // Nombre documento de la entidad configurada en el ORM
@@ -22,6 +24,15 @@ public class ServicioEntidadCultural {
 
         this.conexionEntidades = Persistence.createEntityManagerFactory(persistenciaNombre);
         this.manejadorConexionEntidades = conexionEntidades.createEntityManager();
+    }
+
+    public void cerrarConexion() {
+        if (this.manejadorConexionEntidades != null) {
+            this.manejadorConexionEntidades.close();
+        }
+        if (this.conexionEntidades != null) {
+            this.manejadorConexionEntidades.close();
+        }
     }
 
     public void guardarDatosBd(EntidadCultural entidadCultural){
@@ -46,12 +57,14 @@ public class ServicioEntidadCultural {
             error.printStackTrace();
 
         }finally{
-            if(manejadorConexionEntidades!=null){
-                manejadorConexionEntidades.close();
-            }
-            if (conexionEntidades!=null){
-                manejadorConexionEntidades.close();
-            }
+            cerrarConexion();
         }
+    }
+    public ModeloEntidadCultural buscarEntidadCultural(Integer id){
+        conexion();
+        ModeloEntidadCultural modeloEntidadCultural2;
+        modeloEntidadCultural2 = manejadorConexionEntidades.find(ModeloEntidadCultural.class, id);
+        cerrarConexion();
+        return modeloEntidadCultural2;
     }
 }

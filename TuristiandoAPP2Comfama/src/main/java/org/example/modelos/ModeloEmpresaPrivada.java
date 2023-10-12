@@ -93,5 +93,20 @@ public class ModeloEmpresaPrivada {
     public void setCedulaRepresentante(String cedulaRepresentante) {
         this.cedulaRepresentante = cedulaRepresentante;
     }
-    
+
+
+    @Override
+    public String toString() {
+        return "{" +
+            "\n id= " + getId() + "\n" +
+            ", nit= " + getNit() + "\n" +
+            ", nombre= " + getNombre() + "\n" +
+            ", nombreRepresentante= " + getNombreRepresentante() + "\n" +
+            ", cedulaRepresentante= " + getCedulaRepresentante() + "\n" +
+            ", ubicacion= " + getUbicacion() + "\n" +
+            ", descripcion= " + getDescripcion() + "\n" +
+            ", cobro= " + getCobro() + "\n" +
+            "}";
+    }
+
 }

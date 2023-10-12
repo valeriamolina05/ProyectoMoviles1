@@ -1,21 +1,21 @@
 package org.example.servicios;
 
-import org.example.entidades.Ocasional;
-import org.example.modelos.ModeloOcasional;
+import org.example.entidades.Afiliado;
+import org.example.modelos.ModeloAfiliado;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-public class ServicioUsuarioOcasional {
+public class ServicioUsuarioAfiliado {
 
-    private ModeloOcasional modeloOcasional = new ModeloOcasional();
+    private ModeloAfiliado modeloAfiliado = new ModeloAfiliado();
 
     private String persistenciaNombre;
     private EntityManagerFactory conexionEntidades;
     private EntityManager manejadorConexionEntidades;
 
-    public void conexion(){
+     public void conexion(){
         // Nombre documento de la entidad configurada en el ORM
         this.persistenciaNombre = "conexionbd";
         //conexion con las entidades
@@ -35,22 +35,23 @@ public class ServicioUsuarioOcasional {
         }
     }
 
-    public void guardarDatosBd(Ocasional ocasional){
+    public void guardarDatosBd(Afiliado afiliado){
 
         try {
             conexion();
 
-            modeloOcasional.setNombre(ocasional.getNombre());
-            modeloOcasional.setDocumento(ocasional.getDocumento());
-            modeloOcasional.setCorreo(ocasional.getCorreo());
-            modeloOcasional.setContraseña(ocasional.getContraseña());
-            modeloOcasional.setValorCuota(ocasional.getValorCuota());
+            modeloAfiliado.setNombre(afiliado.getNombre());
+            modeloAfiliado.setDocumento(afiliado.getDocumento());
+            modeloAfiliado.setCorreo(afiliado.getCorreo());
+            modeloAfiliado.setContraseña(afiliado.getContraseña());
+            modeloAfiliado.setValorMensualidad(afiliado.getValorMensualidad());
+            modeloAfiliado.setCedulaInvitado(afiliado.getCedulaInvitado());
 
             manejadorConexionEntidades.getTransaction().begin();
-            manejadorConexionEntidades.persist(modeloOcasional);
+            manejadorConexionEntidades.persist(modeloAfiliado);
             manejadorConexionEntidades.getTransaction().commit();
 
-            System.out.println("¡Registro Usuario Ocacional Exitoso!\n");
+            System.out.println("¡Registro Usuario Afiliado Exitoso!\n");
 
         }catch (Exception error){
             error.printStackTrace();
@@ -60,11 +61,12 @@ public class ServicioUsuarioOcasional {
         }
     }
 
-    public ModeloOcasional buscarOcasional(Integer id){
+    public ModeloAfiliado buscarAfiliado(Integer id){
         conexion();
-        ModeloOcasional modeloOcasional2;
-        modeloOcasional2 = manejadorConexionEntidades.find(ModeloOcasional.class, id);
+        ModeloAfiliado modeloAfiliado2;
+        modeloAfiliado2 = manejadorConexionEntidades.find(ModeloAfiliado.class, id);
         cerrarConexion();
-        return modeloOcasional2;
+        return modeloAfiliado2;
     }
+
 }

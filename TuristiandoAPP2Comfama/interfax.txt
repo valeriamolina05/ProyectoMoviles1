@@ -1,0 +1,178 @@
+// public class Turismo {
+//     public static void main(String[] args) {
+
+//         Scanner scanner = new Scanner(System.in);
+
+//         System.out.println("Bienvenido al Sistema de Registro de Turismo");
+
+//         while (true) {
+//             System.out.println("\nMenú de Opciones:");
+//             System.out.println("1. Registrar Empresa Privada");
+//             System.out.println("2. Registrar Entidad Cultural");
+//             System.out.println("3. Registrar Evento");
+//             System.out.println("4. Registrar Usuario Afiliado");
+//             System.out.println("5. Registrar Usuario Ocasional");
+//             System.out.println("6. Salir");
+//             System.out.print("Por favor, seleccione una opción (1-6): ");
+
+//             int opcion = scanner.nextInt();
+//             scanner.nextLine(); // Consumir el salto de línea
+
+//             switch (opcion) {
+//                 case 1:
+//                     registrarEmpresaPrivada(scanner);
+//                     break;
+//                 case 2:
+//                     registrarEntidadCultural(scanner);
+//                     break;
+//                 case 3:
+//                     registrarEvento(scanner);
+//                     break;
+//                 case 4:
+//                     registrarUsuarioAfiliado(scanner);
+//                     break;
+//                 case 5:
+//                     registrarUsuarioOcasional(scanner);
+//                     break;
+//                 case 6:
+//                     System.out.println("Gracias por utilizar el Sistema de Registro de Turismo. ¡Hasta pronto!");
+//                     System.exit(0);
+//                     break;
+//                 default:
+//                     System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
+//             }
+//         }
+//     }
+
+//     private static void registrarEmpresaPrivada(Scanner scanner) {
+//         System.out.println("Registro de Empresa Privada");
+//         System.out.print("NIT: ");
+//         String nit = scanner.nextLine();
+//         System.out.print("Nombre: ");
+//         String nombre = scanner.nextLine();
+//         System.out.print("Descripción: ");
+//         String descripcion = scanner.nextLine();
+//         System.out.print("Ubicación (ingrese un número): ");
+//         Integer ubicacion = scanner.nextInt();
+//         scanner.nextLine(); // Consumir el salto de línea
+//         System.out.print("Nombre del Representante: ");
+//         String nombreRepresentante = scanner.nextLine();
+//         System.out.print("Cédula del Representante: ");
+//         String cedulaRepresentante = scanner.nextLine();
+
+//         // Llama a la función para registrar la empresa privada con los datos ingresados
+//         ControladorEmpresaPrivada controladorEPrivada = new ControladorEmpresaPrivada();
+//         controladorEPrivada.registrarEmpresa(nit, nombre, descripcion, ubicacion, nombreRepresentante, cedulaRepresentante);
+
+//         System.out.println("Empresa Privada registrada con éxito.");
+//     }
+
+//     private static void registrarEntidadCultural(Scanner scanner) {
+//         System.out.println("Registro de Entidad Cultural");
+//         System.out.print("NIT: ");
+//         String nit = scanner.nextLine();
+//         System.out.print("Nombre: ");
+//         String nombre = scanner.nextLine();
+//         System.out.print("Descripción: ");
+//         String descripcion = scanner.nextLine();
+//         System.out.print("Ubicación (ingrese un número): ");
+//         Integer ubicacion = scanner.nextInt();
+//         scanner.nextLine(); // Consumir el salto de línea
+//         System.out.print("Misión: ");
+//         String mision = scanner.nextLine();
+//         System.out.print("Organización: ");
+//         String organizacion = scanner.nextLine();
+//         System.out.print("Teléfono: ");
+//         String telefono = scanner.nextLine();
+//         System.out.print("Correo: ");
+//         String correo = scanner.nextLine();
+
+//         // Llama a la función para registrar la entidad cultural con los datos ingresados
+//         ControladorEntidadCultural controladorEcultural = new ControladorEntidadCultural();
+//         controladorEcultural.registrarEmpresa(nit, nombre, descripcion, ubicacion, mision, organizacion, telefono, correo);
+
+//         System.out.println("Entidad Cultural registrada con éxito.");
+//     }
+
+//     private static void registrarEvento(Scanner scanner) {
+//         System.out.println("Registro de Evento");
+//         System.out.print("Título: ");
+//         String titulo = scanner.nextLine();
+//         System.out.print("Descripción: ");
+//         String descripcion = scanner.nextLine();
+//         System.out.print("Fecha de Inicio (formato: dd/MM/yyyy HH:mm): ");
+//         String fechaInicio = scanner.nextLine();
+//         System.out.print("Fecha de Fin (formato: dd/MM/yyyy HH:mm): ");
+//         String fechaFin = scanner.nextLine();
+//         System.out.print("Costo por Persona: ");
+//         Double costoPersona = scanner.nextDouble();
+//         scanner.nextLine(); // Consumir el salto de línea
+//         System.out.print("Categoría: ");
+//         String categoria = scanner.nextLine();
+//         System.out.print("Ubicación: ");
+//         String ubicacion = scanner.nextLine();
+//         System.out.print("ID de la Entidad Cultural: ");
+//         Integer idECultural = scanner.nextInt();
+//         scanner.nextLine(); // Consumir el salto de línea
+//         System.out.print("ID de la Empresa Privada (deje en blanco si no aplica): ");
+//         String idEPrivadaInput = scanner.nextLine();
+
+//         // Convierte el ID de la Empresa Privada a Integer o lo deja como null
+//         Integer idEPrivada = null;
+//         if (!idEPrivadaInput.isEmpty()) {
+//             idEPrivada = Integer.parseInt(idEPrivadaInput);
+//         }
+
+//         // Llama a la función para registrar el evento con los datos ingresados
+//         ControladorEvento controladorEvento = new ControladorEvento();
+//         controladorEvento.registrarEvento(titulo, descripcion, fechaInicio, fechaFin, costoPersona, categoria, ubicacion, idECultural, idEPrivada);
+
+//         System.out.println("Evento registrado con éxito.");
+//     }
+
+//     private static void registrarUsuarioAfiliado(Scanner scanner) {
+//         System.out.println("Registro de Usuario Afiliado");
+//         System.out.print("Documento: ");
+//         String documento = scanner.nextLine();
+//         System.out.print("Nombre: ");
+//         String nombre = scanner.nextLine();
+//         System.out.print("Correo: ");
+//         String correo = scanner.nextLine();
+//         System.out.print("Contraseña: ");
+//         String contraseña = scanner.nextLine();
+//         System.out.print("Valor Mensualidad: ");
+//         Double valorMensualidad = scanner.nextDouble();
+//         scanner.nextLine(); // Consumir el salto de línea
+//         System.out.print("Cédula del Invitado (deje en blanco si no aplica): ");
+//         String cedulaInvitado = scanner.nextLine();
+
+//         // Llama a la función para registrar el usuario afiliado con los datos ingresados
+//         ControladorUsuarioAfiliado controladorUsuarioAfiliado = new ControladorUsuarioAfiliado();
+//         controladorUsuarioAfiliado.registrarUsuarioAfiliado(documento, nombre, correo, contraseña, valorMensualidad, cedulaInvitado);
+
+//         System.out.println("Usuario Afiliado registrado con éxito.");
+//     }
+
+//     private static void registrarUsuarioOcasional(Scanner scanner) {
+//         System.out.println("Registro de Usuario Ocasional");
+//         System.out.print("Documento: ");
+//         String documento = scanner.nextLine();
+//         System.out.print("Nombre: ");
+//         String nombre = scanner.nextLine();
+//         System.out.print("Correo: ");
+//         String correo = scanner.nextLine();
+//         System.out.print("Contraseña: ");
+//         String contraseña = scanner.nextLine();
+//         System.out.print("Valor de Cuota: ");
+//         Double valorCuota = scanner.nextDouble();
+//         scanner.nextLine(); // Consumir el salto de línea
+
+//         // Llama a la función para registrar el usuario ocasional con los datos ingresados
+//         ControladorUsuarioOcacional controladorUsuarioOcacional = new ControladorUsuarioOcacional();
+//         controladorUsuarioOcacional.registrarUsuarioOcasional(documento, nombre, correo, contraseña, valorCuota);
+
+//         System.out.println("Usuario Ocasional registrado con éxito.");
+//     }
+// }
+
+// mostrarConfirmacion("Empresa registrada", "La Empresa ha sido registrado con éxito.");

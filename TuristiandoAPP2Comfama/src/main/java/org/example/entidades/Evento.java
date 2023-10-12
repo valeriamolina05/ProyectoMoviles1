@@ -168,5 +168,4 @@ public class Evento {
     public void setModeloEmpresaPrivada(ModeloEmpresaPrivada modeloEmpresaPrivada) {
         this.modeloEmpresaPrivada = modeloEmpresaPrivada;
     }
-
 }

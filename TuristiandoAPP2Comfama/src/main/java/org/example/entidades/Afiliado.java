@@ -5,7 +5,7 @@ import org.example.validaciones.AfiliadoValidacion;
 
 public class Afiliado extends Usuario implements Ireporte{
 
-    private Integer valorMensualidad;
+    private Double valorMensualidad;
     private String cedulaInvitado;
 
     private AfiliadoValidacion validacion = new AfiliadoValidacion();
@@ -21,16 +21,16 @@ public class Afiliado extends Usuario implements Ireporte{
         setContraseña(contraseña);
     }
 
-    public Afiliado(Integer id, String documento, String nombre, String correo, String contraseña, Integer valorMensualidad, String cedulaInvitado) {
+    public Afiliado(Integer id, String documento, String nombre, String correo, String contraseña, Double valorMensualidad, String cedulaInvitado) {
         super(id, documento, nombre, correo, contraseña);
         this.valorMensualidad = valorMensualidad;
     }
 
-    public Integer getValorMensualidad() {
+    public Double getValorMensualidad() {
         return valorMensualidad;
     }
 
-    public void setValorMensualidad(Integer valorMensualidad) {
+    public void setValorMensualidad(Double valorMensualidad) {
         try {
             this.validacion.validarCostoMensualidad(valorMensualidad);
             this.valorMensualidad = valorMensualidad;
@@ -61,8 +61,6 @@ public class Afiliado extends Usuario implements Ireporte{
     public void buscarReporte(Integer id) {
 
     }
-
-
 }
 
 

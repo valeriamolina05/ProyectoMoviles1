@@ -1,6 +1,7 @@
 package org.example.controladores;
 
 import org.example.entidades.EmpresaPrivada;
+import org.example.modelos.ModeloEmpresaPrivada;
 import org.example.servicios.ServicioEmpresaPrivada;
 
 public class ControladorEmpresaPrivada {
@@ -19,4 +20,7 @@ public class ControladorEmpresaPrivada {
         servicioEmpresaPrivada.guardarDatosBd(empresaPrivada);
     }
 
+    public ModeloEmpresaPrivada buscarEmpresaPrivada(Integer id){
+        return servicioEmpresaPrivada.buscarEmpresaPrivada(id);
+    }
 }
