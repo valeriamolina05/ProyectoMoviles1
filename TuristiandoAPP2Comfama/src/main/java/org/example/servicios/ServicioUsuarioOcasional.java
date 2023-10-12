@@ -6,6 +6,7 @@ import org.example.modelos.ModeloOcasional;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.TypedQuery;
 
 public class ServicioUsuarioOcasional {
 
@@ -60,10 +61,12 @@ public class ServicioUsuarioOcasional {
         }
     }
 
-    public ModeloOcasional buscarOcasional(Integer id){
+    public ModeloOcasional buscarOcasional(String documento){
         conexion();
         ModeloOcasional modeloOcasional2;
-        modeloOcasional2 = manejadorConexionEntidades.find(ModeloOcasional.class, id);
+        TypedQuery<ModeloOcasional> query = manejadorConexionEntidades.createQuery("SELECT o FROM ModeloOcacional o WHERE o.documento = :documento", ModeloOcasional.class);
+        query.setParameter("documento", documento);
+        modeloOcasional2 = query.getSingleResult();
         cerrarConexion();
         return modeloOcasional2;
     }

@@ -20,7 +20,7 @@ public class ControladorEmpresaPrivada {
         servicioEmpresaPrivada.guardarDatosBd(empresaPrivada);
     }
 
-    public ModeloEmpresaPrivada buscarEmpresaPrivada(Integer id){
-        return servicioEmpresaPrivada.buscarEmpresaPrivada(id);
+    public ModeloEmpresaPrivada buscarEmpresaPrivada(String nit){
+        return servicioEmpresaPrivada.buscarEmpresaPrivada(nit);
     }
 }

@@ -16,7 +16,7 @@ public class ControladorUsuarioAfiliado {
         this.servicioUsuarioAfiliado.guardarDatosBd(afiliado);
     }
 
-    public ModeloAfiliado buscarUsuarioAfiliado(Integer id){
-        return servicioUsuarioAfiliado.buscarAfiliado(id);
+    public ModeloAfiliado buscarUsuarioAfiliado(String documento){
+        return servicioUsuarioAfiliado.buscarAfiliado(documento);
     }
 }

@@ -6,6 +6,7 @@ import org.example.modelos.ModeloEntidadCultural;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.TypedQuery;
 
 public class ServicioEntidadCultural {
     
@@ -60,10 +61,12 @@ public class ServicioEntidadCultural {
             cerrarConexion();
         }
     }
-    public ModeloEntidadCultural buscarEntidadCultural(Integer id){
+    public ModeloEntidadCultural buscarEntidadCultural(String nit){
         conexion();
         ModeloEntidadCultural modeloEntidadCultural2;
-        modeloEntidadCultural2 = manejadorConexionEntidades.find(ModeloEntidadCultural.class, id);
+        TypedQuery<ModeloEntidadCultural> query = manejadorConexionEntidades.createQuery("SELECT ec FROM ModeloEntidadCultural ec WHERE ec.nit = :nit", ModeloEntidadCultural.class);
+        query.setParameter("nit", nit);
+        modeloEntidadCultural2 = query.getSingleResult();
         cerrarConexion();
         return modeloEntidadCultural2;
     }

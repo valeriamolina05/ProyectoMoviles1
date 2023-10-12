@@ -6,6 +6,7 @@ import org.example.modelos.ModeloAfiliado;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.TypedQuery;
 
 public class ServicioUsuarioAfiliado {
 
@@ -15,10 +16,10 @@ public class ServicioUsuarioAfiliado {
     private EntityManagerFactory conexionEntidades;
     private EntityManager manejadorConexionEntidades;
 
-     public void conexion(){
+    public void conexion() {
         // Nombre documento de la entidad configurada en el ORM
         this.persistenciaNombre = "conexionbd";
-        //conexion con las entidades
+        // conexion con las entidades
         this.conexionEntidades = null;
         this.manejadorConexionEntidades = null;
 
@@ -35,7 +36,7 @@ public class ServicioUsuarioAfiliado {
         }
     }
 
-    public void guardarDatosBd(Afiliado afiliado){
+    public void guardarDatosBd(Afiliado afiliado) {
 
         try {
             conexion();
@@ -53,18 +54,20 @@ public class ServicioUsuarioAfiliado {
 
             System.out.println("¡Registro Usuario Afiliado Exitoso!\n");
 
-        }catch (Exception error){
+        } catch (Exception error) {
             error.printStackTrace();
 
-        }finally{
+        } finally {
             cerrarConexion();
         }
     }
 
-    public ModeloAfiliado buscarAfiliado(Integer id){
+    public ModeloAfiliado buscarAfiliado(String documento) {
         conexion();
         ModeloAfiliado modeloAfiliado2;
-        modeloAfiliado2 = manejadorConexionEntidades.find(ModeloAfiliado.class, id);
+        TypedQuery<ModeloAfiliado> query = manejadorConexionEntidades.createQuery("SELECT a FROM ModeloAfiliado a WHERE a.documento = :documento", ModeloAfiliado.class);
+        query.setParameter("documento", documento);
+        modeloAfiliado2 = query.getSingleResult();
         cerrarConexion();
         return modeloAfiliado2;
     }
