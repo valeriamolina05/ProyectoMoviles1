@@ -3,6 +3,8 @@ package org.example.servicios;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.TypedQuery;
+
 import org.example.entidades.EmpresaPrivada;
 import org.example.modelos.ModeloEmpresaPrivada;
 
@@ -15,7 +17,7 @@ public class ServicioEmpresaPrivada {
     private EntityManager manejadorConexionEntidades;
 
     public void conexion() {
-        // Nombre documento de la entidad configurada en el ORM
+        // Nombre nit de la entidad configurada en el ORM
         this.persistenciaNombre = "conexionbd";
         // conexion con las entidades
         this.conexionEntidades = null;
@@ -61,10 +63,12 @@ public class ServicioEmpresaPrivada {
         }
     }
 
-    public ModeloEmpresaPrivada buscarEmpresaPrivada(Integer id) {
+    public ModeloEmpresaPrivada buscarEmpresaPrivada(String nit) {
         conexion();
         ModeloEmpresaPrivada modeloEmpresaPrivada2;
-        modeloEmpresaPrivada2 = manejadorConexionEntidades.find(ModeloEmpresaPrivada.class, id);
+        TypedQuery<ModeloEmpresaPrivada> query = manejadorConexionEntidades.createQuery("SELECT ep FROM ModeloEmpresaPrivada ep WHERE ep.nit = :nit", ModeloEmpresaPrivada.class);
+        query.setParameter("nit", nit);
+        modeloEmpresaPrivada2 = query.getSingleResult();
         cerrarConexion();
         return modeloEmpresaPrivada2;
     }

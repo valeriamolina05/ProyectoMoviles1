@@ -19,7 +19,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class Turismo extends Application {
@@ -28,6 +27,10 @@ public class Turismo extends Application {
     private ControladorEvento controladorEvento = new ControladorEvento();
     private ControladorUsuarioOcasional controladorUsuarioOcasional = new ControladorUsuarioOcasional();
     private ControladorUsuarioAfiliado controladorUsuarioAfiliado = new ControladorUsuarioAfiliado();
+    private String fontStyle = "-fx-background-color: #000000;";
+    private String buttonStyle = "-fx-background-color: #3670AB; -fx-text-fill: white;";
+    private String labelStyle = "-fx-text-fill: white;";
+    private String titleLabelStyle = "-fx-font-size: 30px; -fx-text-fill: white;";
 
     public static void main(String[] args) {
         launch(args);
@@ -37,51 +40,72 @@ public class Turismo extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Sistema de Registro de Turismo");
 
-        VBox vbox = new VBox();
-        vbox.setAlignment(Pos.CENTER);
-        vbox.setSpacing(20);
+        GridPane grid = new GridPane();
+        grid.setAlignment(Pos.CENTER);
+        grid.setHgap(20);
+        grid.setVgap(20);
 
-        Scene scene = new Scene(vbox, 400, 650);
+        Scene scene = new Scene(grid, 800, 400);
+        // Definir un estilo CSS para la ventana
+
+        // Aplicar el estilo a la escena
+        scene.getRoot().setStyle(this.fontStyle);
         primaryStage.setScene(scene);
 
         Label titleLabel = new Label("Menú de Opciones");
-        titleLabel.setStyle("-fx-font-size: 16px;");
+        titleLabel.setStyle(this.titleLabelStyle);
+        grid.add(titleLabel, 0, 0, 2, 1);
+        GridPane.setHalignment(titleLabel, HPos.CENTER);
+
+        // Columna para botones de registro
+        VBox registroBox = new VBox(10);
+        registroBox.setAlignment(Pos.CENTER);
+        registroBox.setSpacing(10);
 
         Button registerEmpresaButton = new Button("Registrar Empresa Privada");
-        registerEmpresaButton.setStyle("-fx-background-color: #009688; -fx-text-fill:white;");
+        registerEmpresaButton.setStyle(this.buttonStyle);
         Button registerEntidadCulturalButton = new Button("Registrar Entidad Cultural");
-        registerEntidadCulturalButton.setStyle("-fx-background-color: #009688;-fx-text-fill: white;");
+        registerEntidadCulturalButton.setStyle(this.buttonStyle);
         Button registerEventoButton = new Button("Registrar Evento");
-        registerEventoButton.setStyle("-fx-background-color: #009688; -fx-text-fill:white;");
+        registerEventoButton.setStyle(this.buttonStyle);
         Button registerUsuarioAfiliadoButton = new Button("Registrar Usuario Afiliado");
-        registerUsuarioAfiliadoButton.setStyle("-fx-background-color: #009688;-fx-text-fill: white;");
+        registerUsuarioAfiliadoButton.setStyle(this.buttonStyle);
         Button registerUsuarioOcasionalButton = new Button("Registrar Usuario Ocasional");
-        registerUsuarioOcasionalButton.setStyle("-fx-background-color: #009688;-fx-text-fill: white;");
+        registerUsuarioOcasionalButton.setStyle(this.buttonStyle);
 
-        Button buscarEmpresaButton = new Button("Buscar Empresa Privada");
-        buscarEmpresaButton.setStyle("-fx-background-color: #009688; -fx-text-fill:white;");
-        Button buscarEntidadCulturalButton = new Button("Buscar Entidad Cultural");
-        buscarEntidadCulturalButton.setStyle("-fx-background-color: #009688;-fx-text-fill: white;");
-        Button buscarEventoButton = new Button("Buscar Evento");
-        buscarEventoButton.setStyle("-fx-background-color: #009688; -fx-text-fill:white;");
-        Button buscarUsuarioAfiliadoButton = new Button("Buscar Usuario Afiliado");
-        buscarUsuarioAfiliadoButton.setStyle("-fx-background-color: #009688;-fx-text-fill: white;");
-        Button buscarUsuarioOcasionalButton = new Button("Buscar Usuario Ocasional");
-        buscarUsuarioOcasionalButton.setStyle("-fx-background-color: #009688;-fx-text-fill: white;");
-
-        vbox.getChildren().addAll(
-                titleLabel,
+        registroBox.getChildren().addAll(
                 registerEmpresaButton,
                 registerEntidadCulturalButton,
                 registerEventoButton,
                 registerUsuarioAfiliadoButton,
-                registerUsuarioOcasionalButton,
+                registerUsuarioOcasionalButton);
+        grid.add(registroBox, 0, 1);
+
+        // Columna para botones de búsqueda
+        VBox busquedaBox = new VBox(10);
+        busquedaBox.setAlignment(Pos.CENTER);
+        busquedaBox.setSpacing(10);
+
+        Button buscarEmpresaButton = new Button("Buscar Empresa Privada");
+        buscarEmpresaButton.setStyle(this.buttonStyle);
+        Button buscarEntidadCulturalButton = new Button("Buscar Entidad Cultural");
+        buscarEntidadCulturalButton.setStyle(this.buttonStyle);
+        Button buscarEventoButton = new Button("Buscar Evento");
+        buscarEventoButton.setStyle(this.buttonStyle);
+        Button buscarUsuarioAfiliadoButton = new Button("Buscar Usuario Afiliado");
+        buscarUsuarioAfiliadoButton.setStyle(this.buttonStyle);
+        Button buscarUsuarioOcasionalButton = new Button("Buscar Usuario Ocasional");
+        buscarUsuarioOcasionalButton.setStyle(this.buttonStyle);
+
+        busquedaBox.getChildren().addAll(
                 buscarEmpresaButton,
                 buscarEntidadCulturalButton,
                 buscarEventoButton,
                 buscarUsuarioAfiliadoButton,
                 buscarUsuarioOcasionalButton);
+        grid.add(busquedaBox, 1, 1);
 
+        // Configurar eventos para los botones (similar a tu código existente)
         registerEmpresaButton.setOnAction(event -> showEmpresaRegistrationForm(primaryStage));
         registerEntidadCulturalButton.setOnAction(event -> showEntidadCulturalRegistrationForm(primaryStage));
         registerEventoButton.setOnAction(event -> showEventoRegistrationForm(primaryStage));
@@ -97,7 +121,9 @@ public class Turismo extends Application {
         primaryStage.setOnCloseRequest(closeEvent -> {
             primaryStage.close();
         });
+
         primaryStage.show();
+
     }
 
     private void showEmpresaRegistrationForm(Stage primaryStage) {
@@ -109,40 +135,46 @@ public class Turismo extends Application {
         grid.setPadding(new Insets(20, 20, 20, 20));
 
         Label titleLabel = new Label("Registro de Empresa Privada");
-        grid.add(titleLabel, 0, 0, 2, 1);
+        titleLabel.setStyle(titleLabelStyle);
 
         Label nitLabel = new Label("NIT:");
+        nitLabel.setStyle(this.labelStyle);
         grid.add(nitLabel, 0, 1);
         TextField nitField = new TextField();
         grid.add(nitField, 1, 1);
 
         Label nombreLabel = new Label("Nombre:");
+        nombreLabel.setStyle(this.labelStyle);
         grid.add(nombreLabel, 0, 2);
         TextField nombreField = new TextField();
         grid.add(nombreField, 1, 2);
 
         Label descripcionLabel = new Label("Descripción:");
+        descripcionLabel.setStyle(this.labelStyle);
         grid.add(descripcionLabel, 0, 3);
         TextField descripcionField = new TextField();
         grid.add(descripcionField, 1, 3);
 
         Label ubicacionLabel = new Label("Ubicación (Número):");
+        ubicacionLabel.setStyle(this.labelStyle);
         grid.add(ubicacionLabel, 0, 4);
         TextField ubicacionField = new TextField();
         grid.add(ubicacionField, 1, 4);
 
         Label representanteLabel = new Label("Nombre del Representante:");
+        representanteLabel.setStyle(this.labelStyle);
         grid.add(representanteLabel, 0, 5);
         TextField representanteField = new TextField();
         grid.add(representanteField, 1, 5);
 
         Label cedulaRepresentanteLabel = new Label("Cédula del Representante:");
+        cedulaRepresentanteLabel.setStyle(this.labelStyle);
         grid.add(cedulaRepresentanteLabel, 0, 6);
         TextField cedulaRepresentanteField = new TextField();
         grid.add(cedulaRepresentanteField, 1, 6);
 
         Button registerButton = new Button("Registrar Empresa Privada");
-        registerButton.setStyle("-fx-background-color: #009688; -fx-text-fill:white;");
+        registerButton.setStyle(this.buttonStyle);
         registerButton.setMaxWidth(Double.MAX_VALUE);
         grid.add(registerButton, 0, 7, 2, 1);
 
@@ -187,6 +219,7 @@ public class Turismo extends Application {
         vbox.setAlignment(Pos.CENTER);
 
         Scene registrationScene = new Scene(vbox, 350, 300);
+        registrationScene.getRoot().setStyle(this.fontStyle);
         primaryStage.setScene(registrationScene);
 
         primaryStage.show();
@@ -200,34 +233,42 @@ public class Turismo extends Application {
         grid.setVgap(10);
 
         Label titleLabel = new Label("Registro de Entidad Cultural");
-        titleLabel.setStyle("-fx-font-size: 16px;");
+        titleLabel.setStyle(this.titleLabelStyle);
 
         Label nitLabel = new Label("NIT:");
+        nitLabel.setStyle(this.labelStyle);
         TextField nitField = new TextField();
 
         Label nombreLabel = new Label("Nombre:");
+        nombreLabel.setStyle(this.labelStyle);
         TextField nombreField = new TextField();
 
         Label descripcionLabel = new Label("Descripción:");
+        descripcionLabel.setStyle(this.labelStyle);
         TextField descripcionField = new TextField();
 
         Label ubicacionLabel = new Label("Ubicación (ingrese un número):");
+        ubicacionLabel.setStyle(this.labelStyle);
         TextField ubicacionField = new TextField();
 
         Label misionLabel = new Label("Misión:");
+        misionLabel.setStyle(this.labelStyle);
         TextField misionField = new TextField();
 
         Label organizacionLabel = new Label("Organización:");
+        organizacionLabel.setStyle(this.labelStyle);
         TextField organizacionField = new TextField();
 
         Label telefonoLabel = new Label("Teléfono:");
+        telefonoLabel.setStyle(this.labelStyle);
         TextField telefonoField = new TextField();
 
         Label correoLabel = new Label("Correo:");
+        correoLabel.setStyle(this.labelStyle);
         TextField correoField = new TextField();
 
         Button registerButton = new Button("Registrar Entidad Cultural");
-        registerButton.setStyle("-fx-background-color: #009688; -fx-text-fill:white;");
+        registerButton.setStyle(this.buttonStyle);
         registerButton.setMaxWidth(Double.MAX_VALUE); // Centra el botón
 
         Label errorLabel = new Label();
@@ -257,7 +298,8 @@ public class Turismo extends Application {
         vbox.setAlignment(Pos.CENTER);
         vbox.setPadding(new Insets(20));
 
-        Scene scene = new Scene(vbox, 400, 400);
+        Scene scene = new Scene(vbox, 450, 400);
+        scene.getRoot().setStyle(this.fontStyle);
         primaryStage.setScene(scene);
 
         registerButton.setOnAction(event -> {
@@ -306,41 +348,48 @@ public class Turismo extends Application {
         grid.setPadding(new Insets(20, 20, 20, 20));
 
         Label titleLabel = new Label("Registro de Evento");
-        titleLabel.setFont(new Font("Arial", 16));
+        titleLabel.setStyle(titleLabelStyle);
         GridPane.setHalignment(titleLabel, HPos.CENTER);
         grid.add(titleLabel, 0, 0, 2, 1);
 
         Label tituloLabel = new Label("Título:");
+        tituloLabel.setStyle(this.labelStyle); // Aplica el estilo
         grid.add(tituloLabel, 0, 1);
         TextField tituloField = new TextField();
         grid.add(tituloField, 1, 1);
 
         Label descripcionLabel = new Label("Descripción:");
+        descripcionLabel.setStyle(this.labelStyle); // Aplica el estilo
         grid.add(descripcionLabel, 0, 2);
         TextField descripcionField = new TextField();
         grid.add(descripcionField, 1, 2);
 
         Label fechaInicioLabel = new Label("Fecha de Inicio (dd/MM/yyyy HH:mm):");
+        fechaInicioLabel.setStyle(this.labelStyle); // Aplica el estilo
         grid.add(fechaInicioLabel, 0, 3);
         TextField fechaInicioField = new TextField();
         grid.add(fechaInicioField, 1, 3);
 
         Label fechaFinLabel = new Label("Fecha de Fin (dd/MM/yyyy HH:mm):");
+        fechaFinLabel.setStyle(this.labelStyle); // Aplica el estilo
         grid.add(fechaFinLabel, 0, 4);
         TextField fechaFinField = new TextField();
         grid.add(fechaFinField, 1, 4);
 
         Label costoPersonaLabel = new Label("Costo por Persona:");
+        costoPersonaLabel.setStyle(this.labelStyle); // Aplica el estilo
         grid.add(costoPersonaLabel, 0, 5);
         TextField costoPersonaField = new TextField();
         grid.add(costoPersonaField, 1, 5);
 
-        Label categoriaLabel = new Label("Categoría (arte, musica, teatro, biblioteca, otros):");
+        Label categoriaLabel = new Label("Categoría (arte, música, teatro, biblioteca, otros):");
+        categoriaLabel.setStyle(this.labelStyle); // Aplica el estilo
         grid.add(categoriaLabel, 0, 6);
         TextField categoriaField = new TextField();
         grid.add(categoriaField, 1, 6);
 
         Label ubicacionLabel = new Label("Zona (rural, urbana, centro, otro):");
+        ubicacionLabel.setStyle(this.labelStyle); // Aplica el estilo
         grid.add(ubicacionLabel, 0, 7);
 
         ChoiceBox<String> ubicacionChoice = new ChoiceBox<>();
@@ -349,18 +398,20 @@ public class Turismo extends Application {
         grid.add(ubicacionChoice, 1, 7);
 
         Label idECulturalLabel = new Label("ID de la Entidad Cultural:");
+        idECulturalLabel.setStyle(this.labelStyle); // Aplica el estilo
         grid.add(idECulturalLabel, 0, 8);
         TextField idECulturalField = new TextField();
         grid.add(idECulturalField, 1, 8);
 
         Label idEPrivadaLabel = new Label("ID de la Empresa Privada:");
+        idEPrivadaLabel.setStyle(this.labelStyle); // Aplica el estilo
         grid.add(idEPrivadaLabel, 0, 9);
         TextField idEPrivadaField = new TextField();
         grid.add(idEPrivadaField, 1, 9);
 
         Button registrarEventoButton = new Button("Registrar Evento");
         registrarEventoButton.setMaxWidth(Double.MAX_VALUE);
-        registrarEventoButton.setStyle("-fx-background-color: #009688; -fx-text-fill:white;");
+        registrarEventoButton.setStyle(this.buttonStyle);
         grid.add(registrarEventoButton, 0, 10, 2, 1);
 
         Label errorLabel = new Label();
@@ -407,6 +458,7 @@ public class Turismo extends Application {
         vbox.setAlignment(Pos.CENTER);
 
         Scene scene = new Scene(vbox, 455, 400);
+        scene.getRoot().setStyle(this.fontStyle);
         primaryStage.setScene(scene);
 
         primaryStage.show();
@@ -428,35 +480,41 @@ public class Turismo extends Application {
         TextField cedulaInvitadoField = new TextField();
 
         Label titleLabel = new Label("Registro de Usuario Afiliado");
+        titleLabel.setStyle(this.titleLabelStyle);
         formGrid.add(titleLabel, 0, 0, 2, 1);
 
         Label documentoLabel = new Label("Documento:");
+        documentoLabel.setStyle(this.labelStyle);
         formGrid.add(documentoLabel, 0, 1);
         formGrid.add(documentoField, 1, 1);
 
         Label nombreLabel = new Label("Nombre:");
+        nombreLabel.setStyle(this.labelStyle);
         formGrid.add(nombreLabel, 0, 2);
         formGrid.add(nombreField, 1, 2);
 
         Label correoLabel = new Label("Correo:");
+        correoLabel.setStyle(this.labelStyle);
         formGrid.add(correoLabel, 0, 3);
         formGrid.add(correoField, 1, 3);
 
         Label contraseñaLabel = new Label("Contraseña:");
+        contraseñaLabel.setStyle(this.labelStyle);
         formGrid.add(contraseñaLabel, 0, 4);
         formGrid.add(contraseñaField, 1, 4);
 
         Label valorMensualidadLabel = new Label("Valor Mensualidad:");
+        valorMensualidadLabel.setStyle(this.labelStyle);
         formGrid.add(valorMensualidadLabel, 0, 5);
         formGrid.add(valorMensualidadField, 1, 5);
 
         Label cedulaInvitadoLabel = new Label("Cédula del Invitado:");
+        cedulaInvitadoLabel.setStyle(this.labelStyle);
         formGrid.add(cedulaInvitadoLabel, 0, 6);
         formGrid.add(cedulaInvitadoField, 1, 6);
-
         Button registrarButton = new Button("Registrar Afiliado");
         registrarButton.setMaxWidth(Double.MAX_VALUE);
-        registrarButton.setStyle("-fx-background-color: #009688; -fx-text-fill:white;");
+        registrarButton.setStyle(this.buttonStyle);
         formGrid.add(registrarButton, 1, 7);
 
         Label errorLabel = new Label();
@@ -498,7 +556,8 @@ public class Turismo extends Application {
         vbox.setAlignment(Pos.CENTER);
         vbox.setPadding(new Insets(20));
 
-        Scene registrationScene = new Scene(vbox, 400, 300);
+        Scene registrationScene = new Scene(vbox, 400, 310);
+        registrationScene.getRoot().setStyle(this.fontStyle);
         primaryStage.setScene(registrationScene);
         primaryStage.show();
     }
@@ -511,36 +570,41 @@ public class Turismo extends Application {
         grid.setVgap(10);
 
         Label titleLabel = new Label("Registro de Usuario Ocasional");
-        titleLabel.setStyle("-fx-font-size: 16px;");
+        titleLabel.setStyle(this.titleLabelStyle);
         grid.add(titleLabel, 0, 0, 2, 1);
 
         Label documentoLabel = new Label("Documento:");
+        documentoLabel.setStyle(this.labelStyle);
         grid.add(documentoLabel, 0, 1);
         TextField documentoField = new TextField();
         grid.add(documentoField, 1, 1);
 
         Label nombreLabel = new Label("Nombre:");
+        nombreLabel.setStyle(this.labelStyle);
         grid.add(nombreLabel, 0, 2);
         TextField nombreField = new TextField();
         grid.add(nombreField, 1, 2);
 
         Label correoLabel = new Label("Correo:");
+        correoLabel.setStyle(this.labelStyle);
         grid.add(correoLabel, 0, 3);
         TextField correoField = new TextField();
         grid.add(correoField, 1, 3);
 
         Label contraseñaLabel = new Label("Contraseña:");
+        contraseñaLabel.setStyle(this.labelStyle);
         grid.add(contraseñaLabel, 0, 4);
         PasswordField contraseñaField = new PasswordField();
         grid.add(contraseñaField, 1, 4);
 
         Label valorCuotaLabel = new Label("Valor de Cuota:");
+        valorCuotaLabel.setStyle(this.labelStyle);
         grid.add(valorCuotaLabel, 0, 5);
         TextField valorCuotaField = new TextField();
         grid.add(valorCuotaField, 1, 5);
 
         Button registrarButton = new Button("Registrar Usuario Ocasional");
-        registrarButton.setStyle("-fx-background-color: #009688; -fx-text-fill:white;");
+        registrarButton.setStyle(this.buttonStyle);
         registrarButton.setMaxWidth(Double.MAX_VALUE);
         grid.add(registrarButton, 1, 6);
 
@@ -581,6 +645,7 @@ public class Turismo extends Application {
         vbox.setPadding(new Insets(20));
 
         Scene scene = new Scene(vbox, 350, 300);
+        scene.getRoot().setStyle(this.fontStyle);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -593,16 +658,17 @@ public class Turismo extends Application {
         grid.setVgap(10);
 
         Label titleLabel = new Label("Búsqueda de Usuario Afiliado");
-        titleLabel.setStyle("-fx-font-size: 16px;");
+        titleLabel.setStyle(this.titleLabelStyle);
         grid.add(titleLabel, 0, 0, 2, 1);
 
         Label idLabel = new Label("ID del Usuario Afiliado:");
+        idLabel.setStyle(this.labelStyle);
         grid.add(idLabel, 0, 1);
         TextField idField = new TextField();
         grid.add(idField, 1, 1);
 
         Button buscarButton = new Button("Buscar Afiliado");
-        buscarButton.setStyle("-fx-background-color: #009688; -fx-text-fill:white;");
+        buscarButton.setStyle(this.buttonStyle);
         grid.add(buscarButton, 1, 2);
 
         TextArea resultadoLabel = new TextArea("");
@@ -611,7 +677,7 @@ public class Turismo extends Application {
 
         buscarButton.setOnAction(event -> {
             try {
-                int idUsuarioAfiliado = Integer.parseInt(idField.getText());
+                String idUsuarioAfiliado = idField.getText();
                 ModeloAfiliado usuarioAfiliado = controladorUsuarioAfiliado.buscarUsuarioAfiliado(idUsuarioAfiliado);
                 if (usuarioAfiliado != null) {
                     resultadoLabel.setText("Usuario Afiliado encontrado: " + usuarioAfiliado);
@@ -633,6 +699,7 @@ public class Turismo extends Application {
         vbox.setPadding(new Insets(20));
 
         Scene scene = new Scene(vbox, 400, 200);
+        scene.getRoot().setStyle(this.fontStyle);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -645,16 +712,18 @@ public class Turismo extends Application {
         grid.setVgap(10);
 
         Label titleLabel = new Label("Buscar Usuario Ocasional");
-        titleLabel.setStyle("-fx-font-size: 16px;");
+        titleLabel.setStyle(this.titleLabelStyle);
         grid.add(titleLabel, 0, 0, 2, 1);
 
         Label documentoLabel = new Label("Documento:");
+        documentoLabel.setStyle(this.labelStyle);
         grid.add(documentoLabel, 0, 1);
+
         TextField documentoField = new TextField();
         grid.add(documentoField, 1, 1);
 
         Button buscarButton = new Button("Buscar Usuario Ocasional");
-        buscarButton.setStyle("-fx-background-color: #009688; -fx-text-fill:white;");
+        buscarButton.setStyle(this.buttonStyle);
         grid.add(buscarButton, 1, 2);
 
         TextArea resultadoLabel = new TextArea();
@@ -662,7 +731,7 @@ public class Turismo extends Application {
 
         buscarButton.setOnAction(event -> {
             try {
-                Integer documento = Integer.parseInt(documentoField.getText());
+                String documento = documentoField.getText();
                 ModeloOcasional usuarioOcasional = controladorUsuarioOcasional.buscarUsuarioOcasional(documento);
 
                 if (usuarioOcasional != null) {
@@ -685,6 +754,7 @@ public class Turismo extends Application {
         vbox.setPadding(new Insets(20));
 
         Scene scene = new Scene(vbox, 400, 200);
+        scene.getRoot().setStyle(this.fontStyle);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -697,16 +767,17 @@ public class Turismo extends Application {
         grid.setVgap(10);
 
         Label titleLabel = new Label("Buscar Entidad Cultural");
-        titleLabel.setStyle("-fx-font-size: 16px;");
+        titleLabel.setStyle(this.titleLabelStyle);
         grid.add(titleLabel, 0, 0, 2, 1);
 
         Label idLabel = new Label("ID de la Entidad Cultural:");
+        idLabel.setStyle(this.labelStyle);
         grid.add(idLabel, 0, 1);
         TextField idField = new TextField();
         grid.add(idField, 1, 1);
 
         Button buscarButton = new Button("Buscar Entidad Cultural");
-        buscarButton.setStyle("-fx-background-color: #009688; -fx-text-fill:white;");
+        buscarButton.setStyle(this.buttonStyle);
         grid.add(buscarButton, 1, 2);
 
         TextArea resultadoLabel = new TextArea();
@@ -714,7 +785,7 @@ public class Turismo extends Application {
 
         buscarButton.setOnAction(event -> {
             try {
-                int idEntidadCultural = Integer.parseInt(idField.getText());
+                String idEntidadCultural = idField.getText();
                 ModeloEntidadCultural entidadCultural = controladorEcultural.buscarEntidadCultural(idEntidadCultural);
 
                 if (entidadCultural != null) {
@@ -737,6 +808,7 @@ public class Turismo extends Application {
         vbox.setPadding(new Insets(20));
 
         Scene scene = new Scene(vbox, 400, 200);
+        scene.getRoot().setStyle(this.fontStyle);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -750,16 +822,17 @@ public class Turismo extends Application {
         grid.setVgap(10);
 
         Label titleLabel = new Label("Búsqueda de Empresa Privada");
-        titleLabel.setStyle("-fx-font-size: 16px;");
+        titleLabel.setStyle(this.titleLabelStyle);
         grid.add(titleLabel, 0, 0, 2, 1);
 
         Label empresaPrivadaIdLabel = new Label("ID de la Empresa Privada:");
+        empresaPrivadaIdLabel.setStyle(this.labelStyle);
         grid.add(empresaPrivadaIdLabel, 0, 1);
         TextField empresaPrivadaIdField = new TextField();
         grid.add(empresaPrivadaIdField, 1, 1);
 
         Button buscarButton = new Button("Buscar Empresa Privada");
-        buscarButton.setStyle("-fx-background-color: #009688; -fx-text-fill:white;");
+        buscarButton.setStyle(this.buttonStyle);
         grid.add(buscarButton, 1, 2);
 
         TextArea resultadoArea = new TextArea();
@@ -768,7 +841,7 @@ public class Turismo extends Application {
 
         buscarButton.setOnAction(event -> {
             try {
-                int idEmpresaPrivada = Integer.parseInt(empresaPrivadaIdField.getText());
+                String idEmpresaPrivada = empresaPrivadaIdField.getText();
                 ModeloEmpresaPrivada empresaPrivada = controladorEPrivada.buscarEmpresaPrivada(idEmpresaPrivada);
                 if (empresaPrivada != null) {
                     resultadoArea.setText("Empresa Privada encontrada: " + empresaPrivada);
@@ -790,6 +863,7 @@ public class Turismo extends Application {
         vbox.setPadding(new Insets(20));
 
         Scene scene = new Scene(vbox, 400, 300);
+        scene.getRoot().setStyle(this.fontStyle);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -802,16 +876,17 @@ public class Turismo extends Application {
         grid.setVgap(10);
 
         Label titleLabel = new Label("Buscar Evento");
-        titleLabel.setStyle("-fx-font-size: 16px;");
+        titleLabel.setStyle(this.titleLabelStyle);
         grid.add(titleLabel, 0, 0, 2, 1);
 
         Label eventoIdLabel = new Label("ID del Evento:");
+        eventoIdLabel.setStyle(this.labelStyle);
         grid.add(eventoIdLabel, 0, 1);
         TextField eventoIdField = new TextField();
         grid.add(eventoIdField, 1, 1);
 
         Button buscarButton = new Button("Buscar Evento");
-        buscarButton.setStyle("-fx-background-color: #009688; -fx-text-fill:white;");
+        buscarButton.setStyle(this.buttonStyle);
         grid.add(buscarButton, 1, 2);
 
         TextArea resultadoArea = new TextArea();
@@ -842,6 +917,7 @@ public class Turismo extends Application {
         vbox.setPadding(new Insets(20));
 
         Scene scene = new Scene(vbox, 400, 300);
+        scene.getRoot().setStyle(this.fontStyle);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -854,6 +930,8 @@ public class Turismo extends Application {
         alert.showAndWait();
     }
 }
+
+//1029384756
 
 // public class Turismo {
 // public static void main(String[] args) {

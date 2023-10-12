@@ -15,7 +15,7 @@ public class ControladorUsuarioOcasional {
         this.servicioUsuarioOcasional.guardarDatosBd(ocasional);
     }
 
-    public ModeloOcasional buscarUsuarioOcasional(Integer id){
-        return servicioUsuarioOcasional.buscarOcasional(id);
+    public ModeloOcasional buscarUsuarioOcasional(String documento){
+        return servicioUsuarioOcasional.buscarOcasional(documento);
     }
 }

@@ -22,7 +22,7 @@ public class ControladorEntidadCultural {
         servicioEntidadCultural.guardarDatosBd(entidadCultural);
     }
 
-    public ModeloEntidadCultural buscarEntidadCultural(Integer id){
-        return servicioEntidadCultural.buscarEntidadCultural(id);
+    public ModeloEntidadCultural buscarEntidadCultural(String nit){
+        return servicioEntidadCultural.buscarEntidadCultural(nit);
     }
 }
