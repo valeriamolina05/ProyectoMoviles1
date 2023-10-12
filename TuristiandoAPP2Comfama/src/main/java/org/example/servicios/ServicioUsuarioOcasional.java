@@ -26,6 +26,15 @@ public class ServicioUsuarioOcasional {
         this.manejadorConexionEntidades = conexionEntidades.createEntityManager();
     }
 
+    public void cerrarConexion() {
+        if (this.manejadorConexionEntidades != null) {
+            this.manejadorConexionEntidades.close();
+        }
+        if (this.conexionEntidades != null) {
+            this.manejadorConexionEntidades.close();
+        }
+    }
+
     public void guardarDatosBd(Ocasional ocasional){
 
         try {
@@ -47,13 +56,15 @@ public class ServicioUsuarioOcasional {
             error.printStackTrace();
 
         }finally{
-            if(manejadorConexionEntidades!=null){
-                manejadorConexionEntidades.close();
-            }
-            if (conexionEntidades!=null){
-                manejadorConexionEntidades.close();
-            }
+            cerrarConexion();
         }
+    }
 
+    public ModeloOcasional buscarOcasional(Integer id){
+        conexion();
+        ModeloOcasional modeloOcasional2;
+        modeloOcasional2 = manejadorConexionEntidades.find(ModeloOcasional.class, id);
+        cerrarConexion();
+        return modeloOcasional2;
     }
 }

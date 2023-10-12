@@ -1,6 +1,7 @@
 package org.example.controladores;
 
 import org.example.entidades.Afiliado;
+import org.example.modelos.ModeloAfiliado;
 import org.example.servicios.ServicioUsuarioAfiliado;
 
 public class ControladorUsuarioAfiliado {
@@ -13,5 +14,9 @@ public class ControladorUsuarioAfiliado {
         afiliado.setCedulaInvitado(cedulaInvitado);
 
         this.servicioUsuarioAfiliado.guardarDatosBd(afiliado);
+    }
+
+    public ModeloAfiliado buscarUsuarioAfiliado(Integer id){
+        return servicioUsuarioAfiliado.buscarAfiliado(id);
     }
 }

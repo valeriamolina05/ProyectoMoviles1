@@ -93,13 +93,13 @@ public class ModeloAfiliado {
     @Override
     public String toString() {
         return "{" +
-            " id='" + getId() + "'" +
-            ", documento='" + getDocumento() + "'" +
-            ", nombre='" + getNombre() + "'" +
-            ", correo='" + getCorreo() + "'" +
-            ", contraseña='" + getContraseña() + "'" +
-            ", valorMensualidad='" + getValorMensualidad() + "'" +
-            ", cedulaInvitado='" + getCedulaInvitado() + "'" +
+            "\n id= " + getId() + "\n" +
+            ", documento= " + getDocumento() + "\n" +
+            ", nombre= " + getNombre() + "\n" +
+            ", correo= " + getCorreo() + "\n" +
+            ", contraseña= " + getContraseña() + "\n" +
+            ", valorMensualidad= " + getValorMensualidad() + "\n" +
+            ", cedulaInvitado= " + getCedulaInvitado() + "\n" +
             "}";
     }
 

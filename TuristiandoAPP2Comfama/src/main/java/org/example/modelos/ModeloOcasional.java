@@ -83,12 +83,12 @@ public class ModeloOcasional {
     @Override
     public String toString() {
         return "{" +
-            " id='" + getId() + "'" +
-            ", documento='" + getDocumento() + "'" +
-            ", nombre='" + getNombre() + "'" +
-            ", correo='" + getCorreo() + "'" +
-            ", contraseña='" + getContraseña() + "'" +
-            ", valorCuota='" + getValorCuota() + "'" +
+            "\n id= " + getId() + "\n" +
+            ", documento= " + getDocumento() + "\n" +
+            ", nombre= " + getNombre() + "\n" +
+            ", correo= " + getCorreo() + "\n" +
+            ", contraseña= " + getContraseña() + "\n" +
+            ", valorCuota= " + getValorCuota() + "\n" +
             "}";
     }
 

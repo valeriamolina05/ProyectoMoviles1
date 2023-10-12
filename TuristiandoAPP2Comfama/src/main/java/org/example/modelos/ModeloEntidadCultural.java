@@ -118,16 +118,16 @@ public class ModeloEntidadCultural {
     @Override
     public String toString() {
         return "{" +
-            " id='" + getId() + "'" +
-            ", nit='" + getNit() + "'" +
-            ", nombre='" + getNombre() + "'" +
-            ", organizacion='" + getOrganizacion() + "'" +
-            ", descripcion='" + getDescripcion() + "'" +
-            ", mision='" + getMision() + "'" +
-            ", ubicacion='" + getUbicacion() + "'" +
-            ", telefono='" + getTelefono() + "'" +
-            ", correo='" + getCorreo() + "'" +
-            ", cobro='" + getCobro() + "'" +
+            "\n id= " + getId() + "\n" +
+            ", nit= " + getNit() + "\n" +
+            ", nombre= " + getNombre() + "\n" +
+            ", organizacion= " + getOrganizacion() + "\n" +
+            ", descripcion= " + getDescripcion() + "\n" +
+            ", mision= " + getMision() + "\n" +
+            ", ubicacion= " + getUbicacion() + "\n" +
+            ", telefono= " + getTelefono() + "\n" +
+            ", correo= " + getCorreo() + "\n" +
+            ", cobro= " + getCobro() + "\n" +
             "}";
     }
 

@@ -21,7 +21,6 @@ org\example\servicios\ServicioUsuarioOcasional.class
 org\example\servicios\ServicioEvento.class
 org\example\entidades\Usuario.class
 org\example\utilidades\Mensaje.class
-org\example\controladores\ControladorUsuarioOcacional.class
 org\example\modelos\ModeloOcasional.class
 org\example\validaciones\EmpresaValidacion.class
 org\example\servicios\ServicioEmpresaPrivada.class

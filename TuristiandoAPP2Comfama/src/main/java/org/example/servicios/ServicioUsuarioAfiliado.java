@@ -26,6 +26,15 @@ public class ServicioUsuarioAfiliado {
         this.manejadorConexionEntidades = conexionEntidades.createEntityManager();
     }
 
+    public void cerrarConexion() {
+        if (this.manejadorConexionEntidades != null) {
+            this.manejadorConexionEntidades.close();
+        }
+        if (this.conexionEntidades != null) {
+            this.manejadorConexionEntidades.close();
+        }
+    }
+
     public void guardarDatosBd(Afiliado afiliado){
 
         try {
@@ -48,14 +57,16 @@ public class ServicioUsuarioAfiliado {
             error.printStackTrace();
 
         }finally{
-            if(manejadorConexionEntidades!=null){
-                manejadorConexionEntidades.close();
-            }
-            if (conexionEntidades!=null){
-                manejadorConexionEntidades.close();
-            }
+            cerrarConexion();
         }
+    }
 
+    public ModeloAfiliado buscarAfiliado(Integer id){
+        conexion();
+        ModeloAfiliado modeloAfiliado2;
+        modeloAfiliado2 = manejadorConexionEntidades.find(ModeloAfiliado.class, id);
+        cerrarConexion();
+        return modeloAfiliado2;
     }
 
 }

@@ -98,14 +98,14 @@ public class ModeloEmpresaPrivada {
     @Override
     public String toString() {
         return "{" +
-            " id='" + getId() + "'" +
-            ", nit='" + getNit() + "'" +
-            ", nombre='" + getNombre() + "'" +
-            ", nombreRepresentante='" + getNombreRepresentante() + "'" +
-            ", cedulaRepresentante='" + getCedulaRepresentante() + "'" +
-            ", ubicacion='" + getUbicacion() + "'" +
-            ", descripcion='" + getDescripcion() + "'" +
-            ", cobro='" + getCobro() + "'" +
+            "\n id= " + getId() + "\n" +
+            ", nit= " + getNit() + "\n" +
+            ", nombre= " + getNombre() + "\n" +
+            ", nombreRepresentante= " + getNombreRepresentante() + "\n" +
+            ", cedulaRepresentante= " + getCedulaRepresentante() + "\n" +
+            ", ubicacion= " + getUbicacion() + "\n" +
+            ", descripcion= " + getDescripcion() + "\n" +
+            ", cobro= " + getCobro() + "\n" +
             "}";
     }
 
