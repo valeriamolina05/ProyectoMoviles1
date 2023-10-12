@@ -47,11 +47,9 @@ public class EventoValidacion {
 
     public boolean validarCategoria(String categoriaEvento) throws Exception {
         categoriaEvento = categoriaEvento.toLowerCase();
-        if (categoriaEvento.equals("arte y cultura") ||
-                categoriaEvento.equals("musica y conciertos") ||
-                categoriaEvento.equals("teatro") ||
-                categoriaEvento.equals("biblioteca") ||
-                categoriaEvento.equals("otros")) {
+        // Utiliza una expresión regular para validar las categorías
+        if (categoriaEvento.matches(
+                "^(arte|musica|teatro|biblioteca|otros)([ ,]+(arte|musica|teatro|biblioteca|otros))*$")) {
             return true;
         } else {
             throw new Exception(Mensaje.CATEGORIA_INVALIDA.getMensaje());

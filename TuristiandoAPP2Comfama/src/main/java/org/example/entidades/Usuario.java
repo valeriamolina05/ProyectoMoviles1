@@ -91,8 +91,6 @@ public abstract class Usuario {
     }
 
     public abstract void registrar(String documento, String nombre, String email, String contraseña);
-
-
 }
 
 

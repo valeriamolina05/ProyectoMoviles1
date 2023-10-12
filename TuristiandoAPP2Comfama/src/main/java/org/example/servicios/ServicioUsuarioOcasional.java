@@ -8,11 +8,12 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 public class ServicioUsuarioOcasional {
+
+    private ModeloOcasional modeloOcasional = new ModeloOcasional();
+
     private String persistenciaNombre;
     private EntityManagerFactory conexionEntidades;
     private EntityManager manejadorConexionEntidades;
-
-    private ModeloOcasional modeloOcasional = new ModeloOcasional();
 
     public void conexion(){
         // Nombre documento de la entidad configurada en el ORM

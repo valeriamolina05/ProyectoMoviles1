@@ -1,21 +1,21 @@
 package org.example.servicios;
 
-import org.example.entidades.EntidadCultural;
-import org.example.modelos.ModeloEntidadCultural;
+import org.example.entidades.Afiliado;
+import org.example.modelos.ModeloAfiliado;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-public class ServicioEntidadCultural {
-    
-    private ModeloEntidadCultural modeloEntidadCultural = new ModeloEntidadCultural();
+public class ServicioUsuarioAfiliado {
+
+    private ModeloAfiliado modeloAfiliado = new ModeloAfiliado();
 
     private String persistenciaNombre;
     private EntityManagerFactory conexionEntidades;
     private EntityManager manejadorConexionEntidades;
 
-    public void conexion(){
+     public void conexion(){
         // Nombre documento de la entidad configurada en el ORM
         this.persistenciaNombre = "conexionbd";
         //conexion con las entidades
@@ -26,24 +26,24 @@ public class ServicioEntidadCultural {
         this.manejadorConexionEntidades = conexionEntidades.createEntityManager();
     }
 
-    public void guardarDatosBd(EntidadCultural entidadCultural){
+    public void guardarDatosBd(Afiliado afiliado){
+
         try {
             conexion();
-            modeloEntidadCultural.setNit(entidadCultural.getNit());
-            modeloEntidadCultural.setNombre(entidadCultural.getNombre());
-            modeloEntidadCultural.setOrganizacion(entidadCultural.getOrganizacion());
-            modeloEntidadCultural.setTelefono(entidadCultural.getTelefono());
-            modeloEntidadCultural.setCorreo(entidadCultural.getCorreo());
-            modeloEntidadCultural.setUbicacion(entidadCultural.getUbicacion());
-            modeloEntidadCultural.setDescripcion(entidadCultural.getDescripcion());
-            modeloEntidadCultural.setCobro(entidadCultural.getCobro());
+
+            modeloAfiliado.setNombre(afiliado.getNombre());
+            modeloAfiliado.setDocumento(afiliado.getDocumento());
+            modeloAfiliado.setCorreo(afiliado.getCorreo());
+            modeloAfiliado.setContraseña(afiliado.getContraseña());
+            modeloAfiliado.setValorMensualidad(afiliado.getValorMensualidad());
+            modeloAfiliado.setCedulaInvitado(afiliado.getCedulaInvitado());
 
             manejadorConexionEntidades.getTransaction().begin();
-            manejadorConexionEntidades.persist(modeloEntidadCultural);
+            manejadorConexionEntidades.persist(modeloAfiliado);
             manejadorConexionEntidades.getTransaction().commit();
 
-            System.out.println("¡Entidad Cultural registrada con exito!\n");
-            
+            System.out.println("¡Registro Usuario Afiliado Exitoso!\n");
+
         }catch (Exception error){
             error.printStackTrace();
 
@@ -55,5 +55,7 @@ public class ServicioEntidadCultural {
                 manejadorConexionEntidades.close();
             }
         }
+
     }
+
 }

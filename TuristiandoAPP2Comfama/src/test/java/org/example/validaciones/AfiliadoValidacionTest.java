@@ -19,7 +19,7 @@ class AfiliadoValidacionTest {
 
     @Test
     public void validarMensualidadCorrecto(){
-        Integer costoPrueba = 10000;
+        Double costoPrueba = 10000.00;
         Boolean respuesta = Assertions.assertDoesNotThrow(() -> {
             return this.afiliadoValidacion.validarCostoMensualidad(costoPrueba);
         });
@@ -28,7 +28,7 @@ class AfiliadoValidacionTest {
 
     @Test
     public void validarMensualidadIncorrecto(){
-        Integer costoPrueba = -10000;
+        Double costoPrueba = -10000.00;
         Exception respuesta = Assertions.assertThrows(Exception.class,() ->this.afiliadoValidacion.validarCostoMensualidad(costoPrueba));
         Assertions.assertEquals(Mensaje.COSTO_PERSONA_INVALIDO.getMensaje(), respuesta.getMessage());
     }

@@ -122,6 +122,23 @@ public class ModeloEvento {
 
     public void setEmpresaPrivada(ModeloEmpresaPrivada empresaPrivada) {
         this.empresaPrivada = empresaPrivada;
-    }    
+    }
+
+
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", titulo='" + getTitulo() + "'" +
+            ", descripcion='" + getDescripcion() + "'" +
+            ", fechaInicio='" + getFechaInicio() + "'" +
+            ", fechaFin='" + getFechaFin() + "'" +
+            ", categoria='" + getCategoria() + "'" +
+            ", entidadCultural='" + getEntidadCultural() + "'" +
+            ", empresaPrivada='" + getEmpresaPrivada() + "'" +
+            ", costoPersona='" + getCostoPersona() + "'" +
+            ", ubicacion='" + getUbicacion() + "'" +
+            "}";
+    }
     
 }

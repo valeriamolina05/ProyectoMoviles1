@@ -7,11 +7,12 @@ import org.example.entidades.EmpresaPrivada;
 import org.example.modelos.ModeloEmpresaPrivada;
 
 public class ServicioEmpresaPrivada {
+    
+    private ModeloEmpresaPrivada modeloEmpresaPrivada = new ModeloEmpresaPrivada();
 
     private String persistenciaNombre;
     private EntityManagerFactory conexionEntidades;
     private EntityManager manejadorConexionEntidades;
-    private ModeloEmpresaPrivada modeloEmpresaPrivada = new ModeloEmpresaPrivada();
 
     public void conexion(){
         // Nombre documento de la entidad configurada en el ORM
