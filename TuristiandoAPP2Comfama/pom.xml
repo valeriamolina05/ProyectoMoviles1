@@ -18,7 +18,7 @@
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
-                <version>0.0.7</version>
+                <version>0.0.8</version>
                 <configuration>
                     <mainClass>org.example.Turismo</mainClass> <!-- Reemplaza "your.package.name" con la ubicación de tu clase principal -->
                 </configuration>
@@ -35,8 +35,8 @@
         </dependency>
 
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
             <version>8.0.33</version>            <!-- O la versión más reciente del conector MySQL -->
         </dependency>
 
@@ -47,7 +47,7 @@
         </dependency>
 
         <dependency>
-            <groupId>org.hibernate</groupId>
+            <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>6.1.7.Final</version>            <!-- Utiliza la versión más reciente de Hibernate -->
         </dependency>
